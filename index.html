@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IMDAC — Instituto Mexicano de Arquitectura y Construcción</title>
+  <meta name="description" content="Formación especializada en arquitectura y construcción. Cursos online y presenciales con certificación oficial en toda la República Mexicana." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="container">
+      <a href="mailto:grupoimdac@gmail.com">✉ grupoimdac@gmail.com</a>
+      <a href="https://wa.me/5212361078501" target="_blank">📱 +52 1 236 107 8501</a>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <img src="assets/logo/imdac-logo.jpg" alt="Logo IMDAC" />
+        <div class="navbar-brand-text">
+          IMDAC
+          <span>Instituto Mexicano de Arquitectura y Construcción</span>
+        </div>
+      </a>
+      <ul class="navbar-menu" id="navMenu">
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="pages/cursos-online.html">Cursos Online</a></li>
+        <li><a href="pages/cursos-presenciales.html">Cursos Presenciales</a></li>
+        <li><a href="pages/nosotros.html">Nosotros</a></li>
+        <li><a href="pages/contacto.html">Contacto</a></li>
+      </ul>
+      <div class="navbar-cta">
+        <a href="https://wa.me/5212361078501" target="_blank" class="btn btn-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-pattern"></div>
+    <div class="hero-accent"></div>
+    <div class="hero-line"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Formación Profesional en Construcción</div>
+        <h1 class="hero-title">
+          Instituto Mexicano de
+          <span class="highlight">Arquitectura y Construcción</span>
+        </h1>
+        <p class="hero-desc">
+          Capacitación especializada para arquitectos, ingenieros y profesionales de la construcción. Cursos online y presenciales con certificación oficial en toda la República Mexicana.
+        </p>
+        <div class="hero-btns">
+          <a href="pages/cursos-online.html" class="btn btn-rojo">Ver Cursos Online</a>
+          <a href="pages/cursos-presenciales.html" class="btn btn-outline">Cursos Presenciales</a>
+          <a href="https://wa.me/5212361078501" target="_blank" class="btn btn-wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Escribir por WhatsApp
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num">11+</div>
+            <div class="stat-label">Cursos Online</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">12</div>
+            <div class="stat-label">Sedes Presenciales</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Certificado Oficial</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-img-wrap">
+          <!-- Reemplazar con imagen real de hero -->
+          <div style="width:100%;height:420px;background:linear-gradient(135deg,#1a1a1a,#330000);border-radius:12px;display:flex;align-items:center;justify-content:center;">
+            <img src="assets/logo/imdac-logo.jpg" alt="IMDAC" style="max-height:220px;width:auto;border-radius:0;" />
+          </div>
+          <div class="hero-badge">
+            <strong>2026</strong>
+            <span>Nueva oferta académica</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALIADOS / PARTNERS -->
+  <section class="aliados">
+    <p class="aliados-label">Instituciones y aliados que confían en IMDAC</p>
+    <div class="carousel-track-wrap">
+      <div class="carousel-track" id="carouselTrack">
+        <!-- Placeholders de logos partners — reemplazar con imágenes reales -->
+        <div style="height:52px;padding:8px 24px;background:#ddd;border-radius:6px;display:flex;align-items:center;font-weight:700;color:#999;font-size:0.85rem;white-space:nowrap;">PARTNER 1</div>
+        <div style="height:52px;padding:8px 24px;background:#ddd;border-radius:6px;display:flex;align-items:center;font-weight:700;color:#999;font-size:0.85rem;white-space:nowrap;">PARTNER 2</div>
+        <div style="height:52px;padding:8px 24px;background:#ddd;border-radius:6px;display:flex;align-items:center;font-weight:700;color:#999;font-size:0.85rem;white-space:nowrap;">PARTNER 3</div>
+        <div style="height:52px;padding:8px 24px;background:#ddd;border-radius:6px;display:flex;align-items:center;font-weight:700;color:#999;font-size:0.85rem;white-space:nowrap;">PARTNER 4</div>
+        <div style="height:52px;padding:8px 24px;background:#ddd;border-radius:6px;display:flex;align-items:center;font-weight:700;color:#999;font-size:0.85rem;white-space:nowrap;">PARTNER 5</div>
+        <div style="height:52px;padding:8px 24px;background:#ddd;border-radius:6px;display:flex;align-items:center;font-weight:700;color:#999;font-size:0.85rem;white-space:nowrap;">PARTNER 6</div>
+        <!-- Duplicados para loop infinito -->
+        <div style="height:52px;padding:8px 24px;background:#ddd;border-radius:6px;display:flex;align-items:center;font-weight:700;color:#999;font-size:0.85rem;white-space:nowrap;">PARTNER 1</div>
+        <div style="height:52px;padding:8px 24px;background:#ddd;border-radius:6px;display:flex;align-items:center;font-weight:700;color:#999;font-size:0.85rem;white-space:nowrap;">PARTNER 2</div>
+        <div style="height:52px;padding:8px 24px;background:#ddd;border-radius:6px;display:flex;align-items:center;font-weight:700;color:#999;font-size:0.85rem;white-space:nowrap;">PARTNER 3</div>
+        <div style="height:52px;padding:8px 24px;background:#ddd;border-radius:6px;display:flex;align-items:center;font-weight:700;color:#999;font-size:0.85rem;white-space:nowrap;">PARTNER 4</div>
+        <div style="height:52px;padding:8px 24px;background:#ddd;border-radius:6px;display:flex;align-items:center;font-weight:700;color:#999;font-size:0.85rem;white-space:nowrap;">PARTNER 5</div>
+        <div style="height:52px;padding:8px 24px;background:#ddd;border-radius:6px;display:flex;align-items:center;font-weight:700;color:#999;font-size:0.85rem;white-space:nowrap;">PARTNER 6</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIÉNES SOMOS -->
+  <section class="quienes">
+    <div class="container">
+      <div class="quienes-img">
+        <div style="width:100%;height:400px;background:linear-gradient(135deg,#f0f0f0,#e0e0e0);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:0.9rem;">
+          [Foto de instalaciones / equipo IMDAC]
+        </div>
+        <div class="quienes-img-deco"></div>
+      </div>
+      <div class="quienes-text">
+        <span class="section-tag">Sobre IMDAC</span>
+        <h2 class="section-title">Bienvenidos al <span>Instituto Mexicano</span> de Arquitectura y Construcción</h2>
+        <p class="section-sub">
+          En IMDAC ofrecemos formación de calidad en arquitectura y construcción. Nos enfocamos en desarrollar profesionales capacitados con las habilidades necesarias para afrontar los desafíos del sector.<br><br>
+          Nuestra misión es formar expertos comprometidos con la innovación y sostenibilidad en sus proyectos. Únete a nosotros y da el siguiente paso hacia una carrera exitosa.
+        </p>
+        <div class="valores-grid">
+          <div class="valor-item"><span class="valor-icon">🎓</span><p>Instructores expertos con experiencia real</p></div>
+          <div class="valor-item"><span class="valor-icon">📜</span><p>Certificación oficial con valor curricular</p></div>
+          <div class="valor-item"><span class="valor-icon">🌍</span><p>Flexibilidad total — aprende desde cualquier lugar</p></div>
+          <div class="valor-item"><span class="valor-icon">🔧</span><p>Habilidades prácticas aplicables de inmediato</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="beneficios">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">¿Por qué IMDAC?</span>
+        <h2 class="section-title" style="color:var(--blanco);">Razones para elegir <span>nuestra formación</span></h2>
+        <p class="section-sub" style="color:rgba(255,255,255,0.6);">Una propuesta educativa clara, práctica y enfocada en el crecimiento profesional dentro del sector de la construcción.</p>
+      </div>
+      <div class="beneficios-grid">
+        <div class="beneficio-card">
+          <span class="beneficio-icon">🌍</span>
+          <h3>Flexibilidad Total</h3>
+          <p>Aprende a tu propio ritmo, desde cualquier lugar y en cualquier momento con nuestros cursos online.</p>
+        </div>
+        <div class="beneficio-card">
+          <span class="beneficio-icon">📚</span>
+          <h3>Contenido Exclusivo</h3>
+          <p>Material actualizado y de calidad diseñado específicamente para tu aprendizaje en arquitectura y construcción.</p>
+        </div>
+        <div class="beneficio-card">
+          <span class="beneficio-icon">👨‍🏫</span>
+          <h3>Instructores Expertos</h3>
+          <p>Aprende de profesionales con experiencia real en proyectos de arquitectura, obra civil e ingeniería.</p>
+        </div>
+        <div class="beneficio-card">
+          <span class="beneficio-icon">💡</span>
+          <h3>Aprendizaje Práctico</h3>
+          <p>Desarrolla habilidades aplicables directamente en el campo laboral desde el primer módulo.</p>
+        </div>
+        <div class="beneficio-card">
+          <span class="beneficio-icon">🎓</span>
+          <h3>Certificación Oficial</h3>
+          <p>Recibe un certificado con valor curricular, folio único de registro y QR verificable al completar tu curso.</p>
+        </div>
+        <div class="beneficio-card">
+          <span class="beneficio-icon">🤝</span>
+          <h3>Networking Profesional</h3>
+          <p>Conéctate con otros estudiantes y expertos de la industria para ampliar tu red de contactos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURSOS DESTACADOS -->
+  <section class="cursos-dest">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Oferta Académica</span>
+        <h2 class="section-title">Cursos destacados para tu <span>desarrollo profesional</span></h2>
+        <p class="section-sub">Explora nuestra selección de programas diseñados por expertos del sector construcción.</p>
+      </div>
+      <div class="cursos-grid">
+
+        <div class="curso-card">
+          <div class="curso-card-img">
+            <span class="curso-placeholder">📊</span>
+            <span class="curso-tag-pill">Online</span>
+          </div>
+          <div class="curso-card-body">
+            <h3>Elaboración de Números Generadores</h3>
+            <p class="curso-ponente">Técnicas de medición y cálculo para proyectos de construcción</p>
+            <div class="curso-cert">
+              <strong>Certificado con valor curricular</strong>
+              Folio único de registro y QR verificable
+            </div>
+            <div class="curso-card-footer">
+              <a href="https://wa.me/5212361078501?text=Hola,%20me%20interesa%20el%20curso%20de%20Números%20Generadores" target="_blank">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Solicitar información
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="curso-card">
+          <div class="curso-card-img">
+            <span class="curso-placeholder">🖼️</span>
+            <span class="curso-tag-pill">Online</span>
+          </div>
+          <div class="curso-card-body">
+            <h3>Láminas Arquitectónicas Profesionales</h3>
+            <p class="curso-ponente">Arq. Alesiram Sotelo Peñuelas</p>
+            <div class="curso-cert">
+              <strong>Certificado con valor curricular</strong>
+              Folio único de registro y QR verificable
+            </div>
+            <div class="curso-card-footer">
+              <a href="https://wa.me/5212361078501?text=Hola,%20me%20interesa%20el%20curso%20de%20Láminas%20Arquitectónicas" target="_blank">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Solicitar información
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="curso-card">
+          <div class="curso-card-img">
+            <span class="curso-placeholder">🛠️</span>
+            <span class="curso-tag-pill">Online</span>
+          </div>
+          <div class="curso-card-body">
+            <h3>Render Arquitectónico con D5 Render</h3>
+            <p class="curso-ponente">Ing. Edgar Santos Cano</p>
+            <div class="curso-cert">
+              <strong>Certificado con valor curricular</strong>
+              Folio único de registro y QR verificable
+            </div>
+            <div class="curso-card-footer">
+              <a href="https://wa.me/5212361078501?text=Hola,%20me%20interesa%20el%20curso%20de%20Render%20con%20D5" target="_blank">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Solicitar información
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="cursos-ver-mas">
+        <a href="pages/cursos-online.html" class="btn btn-negro">Ver todos los cursos online →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- METODOLOGÍA -->
+  <section class="metodologia">
+    <div class="container">
+      <div class="section-header" style="text-align:center;">
+        <span class="section-tag" style="display:block;text-align:center;">Proceso</span>
+        <h2 class="section-title" style="text-align:center;">Un proceso claro para <span>inscribirte fácilmente</span></h2>
+        <p class="section-sub" style="margin:0 auto;text-align:center;">Conoce la ruta simple para descubrir cursos y solicitar información en el momento indicado.</p>
+      </div>
+      <div class="metodo-steps">
+        <div class="metodo-step">
+          <div class="step-num">1</div>
+          <h3>Explora</h3>
+          <p>Descubre nuestra oferta académica de cursos online y presenciales en arquitectura y construcción.</p>
+        </div>
+        <div class="metodo-step">
+          <div class="step-num">2</div>
+          <h3>Elige</h3>
+          <p>Selecciona el curso que mejor se adapte a tus objetivos profesionales y nivel de experiencia.</p>
+        </div>
+        <div class="metodo-step">
+          <div class="step-num">3</div>
+          <h3>Inscríbete</h3>
+          <p>Contáctanos por WhatsApp o correo electrónico y un asesor te guiará en todo el proceso de inscripción.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISIÓN / VISIÓN / VALORES -->
+  <section class="mision-vision">
+    <div class="container">
+      <div class="mv-grid">
+        <div class="mv-card">
+          <h3>Misión</h3>
+          <h4>Formación especializada y accesible para el sector</h4>
+          <p>Formar expertos comprometidos con la innovación y sostenibilidad, desarrollando profesionales capacitados con las habilidades necesarias para afrontar los desafíos de la arquitectura y construcción.</p>
+        </div>
+        <div class="mv-card">
+          <h3>Visión</h3>
+          <h4>Ser referente en formación de la construcción en México</h4>
+          <p>Consolidarnos como la plataforma educativa líder en capacitación para arquitectos, ingenieros y profesionales de la construcción, reconocida por calidad, innovación e impacto real.</p>
+        </div>
+        <div class="mv-card">
+          <h3>Valores</h3>
+          <h4>Nuestros principios</h4>
+          <ul class="mv-valores">
+            <li>Compromiso con la educación de calidad</li>
+            <li>Innovación en métodos de enseñanza</li>
+            <li>Excelencia académica</li>
+            <li>Sostenibilidad en la construcción</li>
+            <li>Comunidad profesional activa</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="container">
+      <span class="section-tag" style="display:block;text-align:center;color:#ff6666;">¿Listo para comenzar?</span>
+      <h2 class="section-title" style="color:var(--blanco);text-align:center;">Conoce nuestros cursos, resuelve tus dudas <span>e inscríbete hoy</span></h2>
+      <p class="section-sub">Accede a cursos, sedes presenciales y canales de contacto desde una experiencia pensada para ti.</p>
+      <div class="cta-btns">
+        <a href="pages/cursos-online.html" class="btn btn-rojo">Cursos Online</a>
+        <a href="pages/cursos-presenciales.html" class="btn btn-outline">Cursos Presenciales</a>
+        <a href="https://wa.me/5212361078501" target="_blank" class="btn btn-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escribir por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo/imdac-logo.jpg" alt="IMDAC" />
+          <p>Instituto dedicado a la formación, actualización y especialización de profesionales y estudiantes del sector de arquitectura y construcción en México.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/IMDAC11" target="_blank" class="social-btn" title="Facebook">f</a>
+            <a href="https://wa.me/5212361078501" target="_blank" class="social-btn" title="WhatsApp">W</a>
+            <a href="mailto:grupoimdac@gmail.com" class="social-btn" title="Email">@</a>
+          </div>
+        </div>
+        <div>
+          <h4>Secciones</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="pages/cursos-online.html">Cursos Online</a></li>
+            <li><a href="pages/cursos-presenciales.html">Cursos Presenciales</a></li>
+            <li><a href="pages/nosotros.html">Nosotros</a></li>
+            <li><a href="pages/contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="mailto:grupoimdac@gmail.com">grupoimdac@gmail.com</a></li>
+            <li><a href="https://wa.me/5212361078501" target="_blank">WhatsApp +52 1 236 107 8501</a></li>
+            <li><a href="https://www.facebook.com/IMDAC11" target="_blank">Facebook IMDAC</a></li>
+            <li><a href="pages/politicas.html">Políticas de Privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Instituto Mexicano de Arquitectura y Construcción (IMDAC). Todos los derechos reservados.</span>
+        <a href="pages/politicas.html" style="color:rgba(255,255,255,0.4);">Políticas de privacidad</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navMenu').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

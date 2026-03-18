@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto — IMDAC</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 52px; }
+    .contact-card { background: var(--blanco); border: 1px solid #e8e8e8; border-radius: 10px; padding: 40px 32px; text-align: center; box-shadow: var(--sombra); transition: var(--transicion); }
+    .contact-card:hover { border-color: var(--rojo); transform: translateY(-4px); }
+    .contact-icon { font-size: 2.8rem; margin-bottom: 20px; display: block; }
+    .contact-card h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+    .contact-card p { font-size: 0.88rem; color: var(--gris-med); margin-bottom: 24px; line-height: 1.6; }
+    .contact-card a.btn { width: 100%; justify-content: center; }
+    @media(max-width:768px){.contact-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="container"><a href="mailto:grupoimdac@gmail.com">✉ grupoimdac@gmail.com</a><a href="https://wa.me/5212361078501" target="_blank">📱 +52 1 236 107 8501</a></div></div>
+  <nav class="navbar"><div class="container"><a href="../index.html" class="navbar-brand"><img src="../assets/logo/imdac-logo.jpg" alt="Logo IMDAC" /><div class="navbar-brand-text">IMDAC<span>Instituto Mexicano de Arquitectura y Construcción</span></div></a><ul class="navbar-menu" id="navMenu"><li><a href="../index.html">Inicio</a></li><li><a href="cursos-online.html">Cursos Online</a></li><li><a href="cursos-presenciales.html">Cursos Presenciales</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="contacto.html" class="active">Contacto</a></li></ul><div class="navbar-cta"><a href="https://wa.me/5212361078501" target="_blank" class="btn btn-wa">WhatsApp</a></div><div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div></div></nav>
+
+  <div style="background:var(--negro);padding:64px 0 48px;text-align:center;border-bottom:4px solid var(--rojo);">
+    <div class="container">
+      <span class="section-tag" style="display:block;text-align:center;">Estamos para ayudarte</span>
+      <h1 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--blanco);line-height:1.1;margin-bottom:16px;">Contáctanos</h1>
+      <p style="color:rgba(255,255,255,0.65);font-size:1rem;max-width:460px;margin:0 auto;">Un asesor estará encantado de responder todas tus dudas sobre cursos, inscripciones y certificaciones.</p>
+    </div>
+  </div>
+
+  <section style="padding:80px 0;">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-card">
+          <span class="contact-icon">💬</span>
+          <h3>WhatsApp</h3>
+          <p>La forma más rápida de obtener información. Escríbenos y un asesor te responderá a la brevedad.</p>
+          <p style="font-weight:700;color:var(--negro);font-size:1rem;margin-bottom:20px;">+52 1 236 107 8501</p>
+          <a href="https://wa.me/5212361078501?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20los%20cursos%20de%20IMDAC" target="_blank" class="btn btn-wa">Abrir WhatsApp</a>
+        </div>
+        <div class="contact-card">
+          <span class="contact-icon">✉️</span>
+          <h3>Correo Electrónico</h3>
+          <p>Escríbenos por correo y te responderemos con toda la información que necesitas.</p>
+          <p style="font-weight:700;color:var(--negro);font-size:1rem;margin-bottom:20px;">grupoimdac@gmail.com</p>
+          <a href="mailto:grupoimdac@gmail.com" class="btn btn-negro">Enviar correo</a>
+        </div>
+        <div class="contact-card">
+          <span class="contact-icon">📘</span>
+          <h3>Facebook</h3>
+          <p>Síguenos en Facebook para estar al tanto de nuevos cursos, fechas presenciales y noticias del sector.</p>
+          <p style="font-weight:700;color:var(--negro);font-size:1rem;margin-bottom:20px;">@IMDAC11</p>
+          <a href="https://www.facebook.com/IMDAC11" target="_blank" class="btn btn-negro">Visitar Facebook</a>
+        </div>
+        <div class="contact-card">
+          <span class="contact-icon">🎓</span>
+          <h3>Cursos Online</h3>
+          <p>Explora nuestra oferta de 11 cursos online disponibles con certificación oficial desde cualquier lugar.</p>
+          <p style="font-weight:700;color:var(--negro);font-size:1rem;margin-bottom:20px;">11 cursos disponibles</p>
+          <a href="cursos-online.html" class="btn btn-rojo">Ver catálogo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="../assets/logo/imdac-logo.jpg" alt="IMDAC" /><p>Instituto dedicado a la formación de profesionales del sector de arquitectura y construcción en México.</p><div class="footer-social"><a href="https://www.facebook.com/IMDAC11" target="_blank" class="social-btn">f</a><a href="https://wa.me/5212361078501" target="_blank" class="social-btn">W</a><a href="mailto:grupoimdac@gmail.com" class="social-btn">@</a></div></div><div><h4>Secciones</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="cursos-online.html">Cursos Online</a></li><li><a href="cursos-presenciales.html">Cursos Presenciales</a></li><li><a href="nosotros.html">Nosotros</a></li></ul></div><div><h4>Contacto</h4><ul><li><a href="mailto:grupoimdac@gmail.com">grupoimdac@gmail.com</a></li><li><a href="https://wa.me/5212361078501">+52 1 236 107 8501</a></li><li><a href="politicas.html">Políticas de Privacidad</a></li></ul></div></div><div class="footer-bottom"><span>© 2026 IMDAC. Todos los derechos reservados.</span></div></div></footer>
+  <script>function toggleMenu(){document.getElementById('navMenu').classList.toggle('open');}</script>
+</body>
+</html>
