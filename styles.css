@@ -1,147 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--r:#E31E24;--ro:#b91419;--n:#1d1d1f;--g:#6e6e73;--gc:#f5f5f7;--b:rgba(0,0,0,0.08);--w:#fff;--t:0.2s ease}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',-apple-system,sans-serif;background:#fff;color:#1d1d1f;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{text-decoration:none;color:inherit}
-ul{list-style:none}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cursos Online - IMDAC</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
 
-/* NAV */
-.nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-bottom:0.5px solid rgba(0,0,0,0.08);height:52px}
-.nav .c{max-width:1080px;margin:0 auto;padding:0 28px;height:100%;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:10px}
-.brand img{height:34px;width:auto}
-.brand span{font-size:13px;font-weight:700}
-.links{display:flex;gap:4px}
-.links a{font-size:12px;color:#6e6e73;padding:6px 12px;border-radius:8px;transition:.2s;font-weight:500}
-.links a:hover,.links a.on{color:#1d1d1f;background:#f5f5f7}
-.wcta{background:#E31E24;color:#fff;font-size:12px;font-weight:600;padding:8px 18px;border-radius:980px;display:flex;align-items:center;gap:7px;transition:.2s}
-.wcta:hover{background:#b91419}
-.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
-.hbg span{display:block;width:22px;height:1.5px;background:#1d1d1f;border-radius:2px}
-.mob{display:none;flex-direction:column;background:#fff;border-bottom:0.5px solid rgba(0,0,0,0.08);padding:12px 28px 20px;gap:4px}
-.mob a{font-size:14px;color:#1d1d1f;padding:10px 0;border-bottom:0.5px solid rgba(0,0,0,0.08);font-weight:500}
-.mob a:last-child{border:none;color:#E31E24}
-.mob.open{display:flex}
+<nav class="nav"><div class="c">
+  <a href="../index.html" class="brand"><img src="../assets/logo/imdac-logo.jpg" alt="IMDAC"><span>IMDAC</span></a>
+  <ul class="links">
+    <li><a href="../index.html">Inicio</a></li>
+    <li><a href="cursos-online.html" class="on">Cursos Online</a></li>
+    <li><a href="cursos-presenciales.html">Presenciales</a></li>
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <a id="nwa" href="#" class="wcta">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+  <div class="hbg" id="hbg"><span></span><span></span><span></span></div>
+</div>
+<div class="mob" id="mob">
+  <a href="../index.html">Inicio</a>
+  <a href="cursos-online.html">Cursos Online</a>
+  <a href="cursos-presenciales.html">Cursos Presenciales</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="contacto.html">Contacto</a>
+</div></nav>
 
-/* HERO */
-.hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 28px 100px;background:url('assets/img/hero/hero-banner.jpg') center/cover no-repeat}
-.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0.85) 0%,rgba(255,255,255,0.72) 50%,rgba(255,255,255,0.92) 100%)}
-.hero .c{position:relative;z-index:1;max-width:760px;margin:0 auto}
-.htag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#E31E24;margin-bottom:22px}
-.hero h1{font-size:clamp(38px,7vw,76px);font-weight:800;letter-spacing:-.04em;line-height:1;color:#1d1d1f;margin-bottom:22px}
-.hero h1 em{color:#E31E24;font-style:normal}
-.hsub{font-size:clamp(16px,2vw,19px);color:#6e6e73;line-height:1.65;max-width:520px;margin:0 auto 40px}
-.hbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:64px}
-.hstats{display:flex;gap:48px;justify-content:center;border-top:0.5px solid rgba(0,0,0,0.12);padding-top:40px}
-.sn{font-size:40px;font-weight:800;letter-spacing:-.04em;color:#1d1d1f;line-height:1}
-.sn em{color:#E31E24;font-style:normal}
-.sl{font-size:11px;color:#6e6e73;letter-spacing:.05em;text-transform:uppercase;margin-top:5px}
+<section class="hero hero-page" style="position:relative"><div class="c">
+  <span class="htag">Oferta Academica</span>
+  <h1>Cursos <em>Online</em></h1>
+  <p class="hsub">Estudia desde cualquier lugar. Todos incluyen certificacion oficial con valor curricular.</p>
+</div></section>
 
-/* BOTONES */
-.br{background:#E31E24;color:#fff;padding:14px 28px;border-radius:980px;font-size:14px;font-weight:600;transition:.2s;display:inline-flex;align-items:center;gap:8px}
-.br:hover{background:#b91419;transform:translateY(-1px)}
-.bg{background:rgba(255,255,255,0.85);color:#1d1d1f;padding:14px 28px;border-radius:980px;font-size:14px;font-weight:500;border:0.5px solid rgba(0,0,0,0.08);transition:.2s}
-.bg:hover{background:#fff}
-.bw{background:#fff;color:#1d1d1f;padding:14px 28px;border-radius:980px;font-size:14px;font-weight:600;transition:.2s}
-.bw:hover{background:#e8e8ed}
-.bow{background:rgba(255,255,255,0.1);color:#fff;padding:14px 28px;border-radius:980px;font-size:14px;font-weight:500;transition:.2s}
-.bow:hover{background:rgba(255,255,255,0.18)}
+<div style="background:#f5f5f7;padding:20px 28px;border-bottom:0.5px solid rgba(0,0,0,0.08)">
+  <div style="max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px;justify-content:center">
+    <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600">🎓 Instructores expertos</div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600">💻 Aprende desde casa</div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600">🔧 Herramientas actuales</div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600">📜 Certificacion oficial</div>
+  </div>
+</div>
 
-/* SECCIONES */
-.sec{padding:96px 28px}
-.sec .c{max-width:1080px;margin:0 auto}
-.sgray{background:#f5f5f7}
-.stag{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#E31E24;display:block;margin-bottom:12px;text-align:center}
-.stit{font-size:clamp(26px,4vw,46px);font-weight:700;letter-spacing:-.03em;line-height:1.08;color:#1d1d1f;text-align:center;margin-bottom:16px}
-.stit em{color:#E31E24;font-style:normal}
-.sdesc{font-size:16px;color:#6e6e73;line-height:1.7;max-width:480px;margin:0 auto 52px;text-align:center}
+<section class="sec"><div class="c">
+  <div class="cursos-grid" id="cursosGrid"></div>
+</div></section>
 
-/* BENTO */
-.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.bc{background:#fff;border-radius:18px;padding:32px 28px;border:0.5px solid rgba(0,0,0,0.08)}
-.bc.wide{grid-column:span 2}
-.bc.dk{background:#1d1d1f;border-color:transparent}
-.bc.rd{background:#E31E24;border-color:transparent}
-.bi{font-size:24px;margin-bottom:18px;display:block}
-.bc h3{font-size:17px;font-weight:600;margin-bottom:8px;color:#1d1d1f}
-.bc.dk h3,.bc.rd h3{color:#fff}
-.bc p{font-size:13px;line-height:1.65;color:#6e6e73}
-.bc.dk p{color:rgba(255,255,255,0.45)}
-.bc.rd p{color:rgba(255,255,255,0.75)}
+<section class="cta-sec">
+  <h2>Tienes dudas?</h2>
+  <p>Un asesor te orientara sobre cualquier curso.</p>
+  <div class="ctabtns">
+    <a id="ctawa" href="#" class="bw">Escribir por WhatsApp</a>
+    <a href="mailto:grupoimdac@gmail.com" class="bow">grupoimdac@gmail.com</a>
+  </div>
+</section>
 
-/* CURSOS */
-.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,0,0,0.08);border-radius:18px;overflow:hidden}
-.ci{background:#fff;padding:0 0 20px;transition:.2s}
-.ci:hover{background:#f5f5f7}
-.cimg{width:100%;height:160px;overflow:hidden}
-.cimg img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.ci:hover .cimg img{transform:scale(1.05)}
-.cnum{font-size:11px;font-weight:700;color:#E31E24;letter-spacing:.1em;margin:16px 20px 8px}
-.ci h3{font-size:14px;font-weight:600;line-height:1.35;margin:0 20px 5px;color:#1d1d1f}
-.cp{font-size:12px;color:#6e6e73;margin:0 20px}
-.clink{font-size:12px;color:#E31E24;font-weight:600;margin:12px 20px 0;display:inline-block}
-.cmas{text-align:center;margin-top:36px}
-
-/* GALERIA */
-.ggrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.gi{border-radius:14px;overflow:hidden;aspect-ratio:1}
-.gi.gw{grid-column:span 2;aspect-ratio:2/1}
-.gi img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.gi:hover img{transform:scale(1.04)}
-
-/* MISION VISION */
-.mvg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.mvc{border-radius:18px;padding:36px 28px}
-.mvc.c1{background:#1d1d1f}
-.mvc.c2{background:#E31E24}
-.mvc.c3{background:#fff;border:0.5px solid rgba(0,0,0,0.08)}
-.mvl{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.5;margin-bottom:12px;color:#fff}
-.mvc.c3 .mvl{color:#1d1d1f}
-.mvc h3{font-size:19px;font-weight:700;line-height:1.2;margin-bottom:14px;color:#fff}
-.mvc.c3 h3{color:#1d1d1f}
-.mvc p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7}
-.mvc.c3 p{color:#6e6e73}
-.mvv{display:flex;flex-direction:column;gap:9px;margin-top:6px}
-.mvv li{font-size:13px;color:#6e6e73;display:flex;align-items:center;gap:9px}
-.mvv li::before{content:'';width:5px;height:5px;background:#E31E24;border-radius:50%;flex-shrink:0}
-
-/* SEDES */
-.sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.scard{background:#fff;border-radius:14px;padding:20px 18px;border:0.5px solid rgba(0,0,0,0.08);transition:.2s}
-.scard:hover{border-color:#E31E24;transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,0.07)}
-.sfec{font-size:11px;font-weight:700;color:#E31E24;letter-spacing:.07em;margin-bottom:7px;display:block}
-.scit{font-size:15px;font-weight:700;color:#1d1d1f}
-.sest{font-size:12px;color:#6e6e73;margin-top:3px}
-.swa{display:inline-block;font-size:12px;color:#E31E24;font-weight:600;margin-top:14px}
-
-/* PROCESO */
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.paso{background:#fff;border-radius:18px;padding:32px 28px;border:0.5px solid rgba(0,0,0,0.08)}
-.pnum{width:44px;height:44px;background:#E31E24;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;margin-bottom:20px}
-.paso h3{font-size:17px;font-weight:700;margin-bottom:8px}
-.paso p{font-size:13px;color:#6e6e73;line-height:1.65}
-
-/* CTA */
-.cta{background:#1d1d1f;padding:112px 28px;text-align:center}
-.cta h2{font-size:clamp(28px,4vw,52px);font-weight:800;letter-spacing:-.04em;color:#fff;margin-bottom:16px}
-.cta p{font-size:16px;color:rgba(255,255,255,0.5);margin-bottom:40px}
-.ctabtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-
-/* FOOTER */
-.footer{background:#f5f5f7;border-top:0.5px solid rgba(0,0,0,0.08);padding:52px 28px 28px}
-.footer .c{max-width:1080px;margin:0 auto}
-.fg{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:40px}
-.fbrand{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-.fbrand img{height:36px}
-.fbrand span{font-size:14px;font-weight:700}
-.fdesc{font-size:13px;color:#6e6e73;line-height:1.7;max-width:240px}
-.footer h4{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6e6e73;margin-bottom:18px}
-.footer ul{display:flex;flex-direction:column;gap:11px}
-.footer ul a{font-size:13px;color:#1d1d1f;transition:.2s}
-.footer ul a:hover{color:#E31E24}
-.fbot{border-top:0.5px solid rgba(0,0,0,0.08);padding-top:20px;display:flex;justify-content:space-between;font-size:12px;color:#6e6e73}
-
-@media(max-width:1024px){.bento,.mvg,.pgrid{grid-template-columns:repeat(2,1fr)}.bc.wide{grid-column:span 2}.cgrid{grid-template-columns:repeat(2,1fr)}.sgrid{grid-template-columns:repeat(3,1fr)}.ggrid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:768px){.links,.wcta{display:none}.hbg{display:flex}.hstats{gap:24px}.sn{font-size:30px}.bento,.cgrid,.mvg,.pgrid{grid-template-columns:1fr}.bc.wide{grid-column:span 1}.sgrid{grid-template-columns:repeat(2,1fr)}.ggrid{grid-template-columns:repeat(2,1fr)}.gi.gw{grid-column:span 2}.fg{grid-template-columns:1fr;gap:32px}.fbot{flex-direction:column;gap:8px;text-align:center}}
+<footer class="footer" id="footer"></footer>
+<script src="../data.js"></script><script src="../script.js"></script>
+<script>
+  initNav();
+  renderFooter('../');
+  renderCursosGrid('../');
+  setWa('ctawa','Hola, tengo dudas sobre los cursos online de IMDAC');
+</script>
+</body>
+</html>
