@@ -1,69 +1,238 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacto — IMDAC</title>
-  <link rel="stylesheet" href="../css/styles.css" />
-  <style>
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 52px; }
-    .contact-card { background: var(--blanco); border: 1px solid #e8e8e8; border-radius: 10px; padding: 40px 32px; text-align: center; box-shadow: var(--sombra); transition: var(--transicion); }
-    .contact-card:hover { border-color: var(--rojo); transform: translateY(-4px); }
-    .contact-icon { font-size: 2.8rem; margin-bottom: 20px; display: block; }
-    .contact-card h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
-    .contact-card p { font-size: 0.88rem; color: var(--gris-med); margin-bottom: 24px; line-height: 1.6; }
-    .contact-card a.btn { width: 100%; justify-content: center; }
-    @media(max-width:768px){.contact-grid{grid-template-columns:1fr;}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto - IMDAC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#fff;color:#1d1d1f;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-style:none}
+.nav{position:sticky;top:0;z-index:999;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid #eee;height:56px}
+.nav-i{max-width:1100px;margin:0 auto;padding:0 20px;height:100%;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px}.brand img{height:36px}.brand b{font-size:14px;font-weight:700}
+.navlinks{display:flex;gap:2px}.navlinks a{font-size:12px;color:#555;padding:7px 12px;border-radius:8px;font-weight:500;transition:all .2s}.navlinks a:hover,.navlinks a.on{background:#f5f5f7;color:#1d1d1f}
+.nwa{background:#E31E24;color:#fff;font-size:12px;font-weight:600;padding:8px 18px;border-radius:50px;display:flex;align-items:center;gap:6px}.nwa:hover{background:#c41a1f}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px}.hbg span{display:block;width:24px;height:2px;background:#1d1d1f;border-radius:2px}
+.mobnav{display:none;background:#fff;border-bottom:1px solid #eee;padding:12px 20px}
+.mobnav a{display:block;padding:11px 0;font-size:15px;font-weight:500;color:#1d1d1f;border-bottom:1px solid #f5f5f5}
+.mobnav a:last-child{border:none;color:#E31E24;padding-top:14px}.mobnav.open{display:block}
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 20px 80px}
+.hero-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0.88) 0%,rgba(255,255,255,0.75) 50%,rgba(255,255,255,0.93) 100%)}
+.hero-dark{background:#1d1d1f;min-height:260px;padding:80px 20px 60px}.hero-dark::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:#E31E24}
+.hero-c{position:relative;z-index:1;max-width:720px;margin:0 auto}
+.hero-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#E31E24;display:block;margin-bottom:18px}
+.hero-dark .hero-label{color:rgba(255,255,255,0.6)}
+.hero h1{font-size:clamp(32px,6vw,68px);font-weight:900;letter-spacing:-.03em;line-height:1;color:#1d1d1f;margin-bottom:18px}
+.hero-dark h1{color:#fff}.hero h1 em{color:#E31E24;font-style:normal}
+.hero-sub{font-size:clamp(14px,2vw,18px);color:#555;line-height:1.7;max-width:500px;margin:0 auto 36px}
+.hero-dark .hero-sub{color:rgba(255,255,255,0.6)}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:52px}
+.stats{display:flex;gap:40px;justify-content:center;border-top:1px solid rgba(0,0,0,0.1);padding-top:36px}
+.stat-n{font-size:36px;font-weight:900;letter-spacing:-.03em;color:#1d1d1f;line-height:1}.stat-n em{color:#E31E24;font-style:normal}
+.stat-l{font-size:11px;color:#888;letter-spacing:.04em;text-transform:uppercase;margin-top:4px}
+.btn-r{background:#E31E24;color:#fff;padding:13px 26px;border-radius:50px;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:7px;transition:all .2s}.btn-r:hover{background:#c41a1f;transform:translateY(-1px)}
+.btn-g{background:rgba(255,255,255,0.9);color:#1d1d1f;padding:13px 26px;border-radius:50px;font-size:14px;font-weight:500;border:1px solid #ddd}
+.btn-w{background:#fff;color:#1d1d1f;padding:13px 26px;border-radius:50px;font-size:14px;font-weight:600}.btn-w:hover{background:#f0f0f0}
+.btn-o{background:rgba(255,255,255,0.12);color:#fff;padding:13px 26px;border-radius:50px;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.3)}
+.btn-dark{background:#1d1d1f;color:#fff;padding:13px 26px;border-radius:50px;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:7px}
+.sec{padding:80px 20px}.sec-c{max-width:1100px;margin:0 auto}.gray{background:#f5f5f7}
+.sec-tag{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#E31E24;display:block;margin-bottom:10px;text-align:center}
+.sec-tit{font-size:clamp(24px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.1;color:#1d1d1f;text-align:center;margin-bottom:14px}
+.sec-tit em{color:#E31E24;font-style:normal}
+.sec-desc{font-size:15px;color:#666;line-height:1.7;max-width:460px;margin:0 auto 44px;text-align:center}
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.bc{background:#fff;border-radius:16px;padding:28px 24px;border:1px solid #ebebeb}.bc.wide{grid-column:span 2}
+.bc.dk{background:#1d1d1f;border-color:transparent}.bc.rd{background:#E31E24;border-color:transparent}
+.bc-icon{font-size:22px;margin-bottom:14px;display:block}
+.bc h3{font-size:16px;font-weight:700;margin-bottom:7px;color:#1d1d1f}.bc.dk h3,.bc.rd h3{color:#fff}
+.bc p{font-size:13px;line-height:1.65;color:#666}.bc.dk p{color:rgba(255,255,255,0.5)}.bc.rd p{color:rgba(255,255,255,0.8)}
+.wrap{position:relative;margin:0 -20px}.outer{overflow:hidden;padding:6px 20px 14px;cursor:grab;-webkit-user-select:none;user-select:none}.outer:active{cursor:grabbing}
+.track{display:flex;gap:14px;width:max-content;transition:transform .3s ease}
+.cnav{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:20px}
+.cbtn{width:34px;height:34px;border-radius:50%;border:1px solid #ddd;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;color:#1d1d1f}.cbtn:hover{background:#f5f5f7}
+.cdots{display:flex;gap:5px;align-items:center}.cdot{width:6px;height:6px;border-radius:50%;background:rgba(0,0,0,0.15);cursor:pointer;transition:all .2s}.cdot.on{background:#E31E24;width:16px;border-radius:3px}
+.ccard{width:300px;flex-shrink:0;background:#fff;border-radius:16px;overflow:hidden;border:1px solid #ebebeb;transition:all .2s;display:flex;flex-direction:column}
+.ccard:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,0.09)}
+.ccard-img{position:relative;height:170px;overflow:hidden;flex-shrink:0}.ccard-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}.ccard:hover .ccard-img img{transform:scale(1.05)}
+.ccard-num{position:absolute;top:10px;left:10px;background:#E31E24;color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:50px}
+.ccard-body{padding:18px;display:flex;flex-direction:column;flex:1}
+.ccard-body h3{font-size:13px;font-weight:700;line-height:1.35;margin-bottom:4px;color:#1d1d1f}
+.ccard-pon{font-size:11px;color:#888;margin-bottom:12px}
+.ccard-tem{background:#f5f5f7;border-radius:8px;padding:10px 12px;margin-bottom:12px}
+.ccard-tem-title{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#E31E24;margin-bottom:7px}
+.ccard-tem ul{display:flex;flex-direction:column;gap:4px}
+.ccard-tem li{font-size:10px;color:#333;display:flex;align-items:flex-start;gap:6px;line-height:1.4}
+.ccard-tem li::before{content:'';width:3px;height:3px;background:#E31E24;border-radius:50%;flex-shrink:0;margin-top:4px}
+.ccard-cert{font-size:10px;color:#888;border-left:2px solid #E31E24;padding:5px 8px;margin-bottom:12px}
+.ccard-cert strong{display:block;font-size:11px;color:#1d1d1f;margin-bottom:1px}
+.ccard-btn{display:flex;align-items:center;justify-content:center;gap:5px;padding:10px;background:#1d1d1f;color:#fff;border-radius:50px;font-size:12px;font-weight:600;transition:all .2s;margin-top:auto}.ccard-btn:hover{background:#E31E24}
+.cursos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.cursos-grid .ccard{width:100%}
+.acard{width:260px;flex-shrink:0;border-radius:14px;overflow:hidden;aspect-ratio:1}.acard img{width:100%;height:100%;object-fit:cover}.acard.wide{width:380px;aspect-ratio:16/9}
+.mv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mvc{border-radius:16px;padding:32px 26px}.mvc.c1{background:#1d1d1f}.mvc.c2{background:#E31E24}.mvc.c3{background:#fff;border:1px solid #ebebeb}
+.mv-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:10px}.mvc.c3 .mv-lbl{color:#999}
+.mvc h3{font-size:18px;font-weight:700;line-height:1.2;margin-bottom:12px;color:#fff}.mvc.c3 h3{color:#1d1d1f}
+.mvc p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7}.mvc.c3 p{color:#666}
+.mv-vals{display:flex;flex-direction:column;gap:8px;margin-top:4px}.mv-vals li{font-size:13px;color:#666;display:flex;align-items:center;gap:8px}.mv-vals li::before{content:'';width:4px;height:4px;background:#E31E24;border-radius:50%;flex-shrink:0}
+.sedes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.scard{background:#fff;border-radius:12px;padding:18px 16px;border:1px solid #ebebeb;transition:all .2s}.scard:hover{border-color:#E31E24;transform:translateY(-2px)}
+.scard-fecha{font-size:10px;font-weight:700;color:#E31E24;letter-spacing:.06em;margin-bottom:6px;display:block}
+.scard-ciudad{font-size:14px;font-weight:700;color:#1d1d1f}.scard-estado{font-size:11px;color:#888;margin-top:2px}
+.scard-wa{display:inline-block;font-size:11px;color:#E31E24;font-weight:600;margin-top:12px}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.paso{background:#fff;border-radius:16px;padding:28px 24px;border:1px solid #ebebeb}
+.paso-n{width:42px;height:42px;background:#E31E24;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;margin-bottom:18px}
+.paso h3{font-size:16px;font-weight:700;margin-bottom:7px}.paso p{font-size:13px;color:#666;line-height:1.65}
+.cta-sec{background:#1d1d1f;padding:96px 20px;text-align:center}
+.cta-sec h2{font-size:clamp(26px,4vw,48px);font-weight:900;letter-spacing:-.03em;color:#fff;margin-bottom:14px}
+.cta-sec p{font-size:16px;color:rgba(255,255,255,0.5);margin-bottom:36px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:44px}
+.contact-card{background:#fff;border-radius:16px;padding:36px 28px;text-align:center;border:1px solid #ebebeb;transition:all .2s}.contact-card:hover{border-color:#E31E24;transform:translateY(-3px)}
+.contact-icon{font-size:2.2rem;margin-bottom:18px;display:block}
+.contact-card h3{font-size:17px;font-weight:700;margin-bottom:8px}.contact-card p{font-size:13px;color:#666;margin-bottom:4px}
+.contact-card strong{font-size:15px;color:#1d1d1f;display:block;margin-bottom:18px}
+.footer{background:#f5f5f7;border-top:1px solid #e5e5e5;padding:48px 20px 24px}
+.footer-i{max-width:1100px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:36px}
+.fbrand{display:flex;align-items:center;gap:10px;margin-bottom:12px}.fbrand img{height:34px}.fbrand span{font-size:14px;font-weight:700}
+.fdesc{font-size:13px;color:#666;line-height:1.7;max-width:230px}
+.footer h4{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#999;margin-bottom:16px}
+.footer ul{display:flex;flex-direction:column;gap:10px}.footer ul a{font-size:13px;color:#333;transition:color .2s}.footer ul a:hover{color:#E31E24}
+.fbot{border-top:1px solid #e5e5e5;padding-top:18px;display:flex;justify-content:space-between;font-size:12px;color:#999}
+@media(max-width:1024px){.bento,.mv-grid,.pgrid{grid-template-columns:repeat(2,1fr)}.bc.wide{grid-column:span 2}.sedes-grid{grid-template-columns:repeat(3,1fr)}.cursos-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.navlinks,.nwa{display:none}.hbg{display:flex}.stats{gap:20px}.stat-n{font-size:28px}.hero-btns{flex-direction:column;align-items:center}.bento,.mv-grid,.pgrid,.contact-grid{grid-template-columns:1fr}.bc.wide{grid-column:span 1}.sedes-grid{grid-template-columns:repeat(2,1fr)}.ccard{width:260px}.acard{width:200px}.acard.wide{width:300px}.footer-grid{grid-template-columns:1fr;gap:28px}.fbot{flex-direction:column;gap:6px;text-align:center}.cursos-grid{grid-template-columns:1fr}}
+</style>
+
+
 </head>
 <body>
-  <div class="topbar"><div class="container"><a href="mailto:grupoimdac@gmail.com">✉ grupoimdac@gmail.com</a><a href="https://wa.me/5212361078501" target="_blank">📱 +52 1 236 107 8501</a></div></div>
-  <nav class="navbar"><div class="container"><a href="../index.html" class="navbar-brand"><img src="../assets/logo/imdac-logo.jpg" alt="Logo IMDAC" /><div class="navbar-brand-text">IMDAC<span>Instituto Mexicano de Arquitectura y Construcción</span></div></a><ul class="navbar-menu" id="navMenu"><li><a href="../index.html">Inicio</a></li><li><a href="cursos-online.html">Cursos Online</a></li><li><a href="cursos-presenciales.html">Cursos Presenciales</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="contacto.html" class="active">Contacto</a></li></ul><div class="navbar-cta"><a href="https://wa.me/5212361078501" target="_blank" class="btn btn-wa">WhatsApp</a></div><div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div></div></nav>
-
-  <div style="background:var(--negro);padding:64px 0 48px;text-align:center;border-bottom:4px solid var(--rojo);">
-    <div class="container">
-      <span class="section-tag" style="display:block;text-align:center;">Estamos para ayudarte</span>
-      <h1 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--blanco);line-height:1.1;margin-bottom:16px;">Contáctanos</h1>
-      <p style="color:rgba(255,255,255,0.65);font-size:1rem;max-width:460px;margin:0 auto;">Un asesor estará encantado de responder todas tus dudas sobre cursos, inscripciones y certificaciones.</p>
+<nav class="nav">
+  <div class="nav-i">
+    <a href="../index.html" class="brand"><img src="../assets/logo/imdac-logo.jpg" alt="IMDAC"><b>IMDAC</b></a>
+    <ul class="navlinks"><li><a href="../index.html">Inicio</a></li><li><a href="../pages/cursos-online.html">Cursos Online</a></li><li><a href="../pages/cursos-presenciales.html">Presenciales</a></li><li><a href="../pages/nosotros.html">Nosotros</a></li><li><a href="../pages/contacto.html" class='on'>Contacto</a></li></ul>
+    <a href="#" class="nwa wa-auto" data-msg="Hola, informes IMDAC"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+    <div class="hbg" id="hbg"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mobnav" id="mobnav"><a href="../index.html">Inicio</a><a href="../pages/cursos-online.html">Cursos Online</a><a href="../pages/cursos-presenciales.html">Presenciales</a><a href="../pages/nosotros.html">Nosotros</a><a href="../pages/contacto.html">Contacto</a><a href="#" class="wa-auto" data-msg="Hola, informes IMDAC">WhatsApp</a></div>
+</nav>
+<section class="hero hero-dark" style="position:relative">
+  <div class="hero-c">
+    <span class="hero-label">Estamos para ayudarte</span>
+    <h1><em>Contacto</em></h1>
+    <p class="hero-sub">Un asesor respondera todas tus dudas sobre cursos, inscripciones y certificaciones.</p>
+  </div>
+</section>
+<section class="sec"><div class="sec-c">
+  <div class="contact-grid">
+    <div class="contact-card">
+      <span class="contact-icon">&#128172;</span><h3>WhatsApp</h3>
+      <p>La forma mas rapida de obtener informacion.</p>
+      <strong>+52 1 236 107 8501</strong>
+      <a href="#" class="btn-r wa-auto" style="justify-content:center" data-msg="Hola, me gustaria recibir informacion sobre los cursos de IMDAC">&#128172; Abrir WhatsApp</a>
+    </div>
+    <div class="contact-card">
+      <span class="contact-icon">&#9993;&#65039;</span><h3>Correo Electronico</h3>
+      <p>Escribenos y te respondemos con toda la informacion.</p>
+      <strong>grupoimdac@gmail.com</strong>
+      <a href="mailto:grupoimdac@gmail.com" class="btn-dark" style="justify-content:center">Enviar correo</a>
+    </div>
+    <div class="contact-card">
+      <span class="contact-icon">&#128216;</span><h3>Facebook</h3>
+      <p>Siguenos para nuevos cursos y noticias del sector.</p>
+      <strong>@IMDAC11</strong>
+      <a href="https://www.facebook.com/IMDAC11" target="_blank" class="btn-dark" style="justify-content:center;background:#1877F2">Visitar Facebook</a>
+    </div>
+    <div class="contact-card">
+      <span class="contact-icon">&#127891;</span><h3>Cursos Online</h3>
+      <p>Explora nuestra oferta de 11 cursos con certificacion oficial.</p>
+      <strong>11 cursos disponibles</strong>
+      <a href="cursos-online.html" class="btn-r" style="justify-content:center">Ver catalogo</a>
     </div>
   </div>
-
-  <section style="padding:80px 0;">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-card">
-          <span class="contact-icon">💬</span>
-          <h3>WhatsApp</h3>
-          <p>La forma más rápida de obtener información. Escríbenos y un asesor te responderá a la brevedad.</p>
-          <p style="font-weight:700;color:var(--negro);font-size:1rem;margin-bottom:20px;">+52 1 236 107 8501</p>
-          <a href="https://wa.me/5212361078501?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20los%20cursos%20de%20IMDAC" target="_blank" class="btn btn-wa">Abrir WhatsApp</a>
-        </div>
-        <div class="contact-card">
-          <span class="contact-icon">✉️</span>
-          <h3>Correo Electrónico</h3>
-          <p>Escríbenos por correo y te responderemos con toda la información que necesitas.</p>
-          <p style="font-weight:700;color:var(--negro);font-size:1rem;margin-bottom:20px;">grupoimdac@gmail.com</p>
-          <a href="mailto:grupoimdac@gmail.com" class="btn btn-negro">Enviar correo</a>
-        </div>
-        <div class="contact-card">
-          <span class="contact-icon">📘</span>
-          <h3>Facebook</h3>
-          <p>Síguenos en Facebook para estar al tanto de nuevos cursos, fechas presenciales y noticias del sector.</p>
-          <p style="font-weight:700;color:var(--negro);font-size:1rem;margin-bottom:20px;">@IMDAC11</p>
-          <a href="https://www.facebook.com/IMDAC11" target="_blank" class="btn btn-negro">Visitar Facebook</a>
-        </div>
-        <div class="contact-card">
-          <span class="contact-icon">🎓</span>
-          <h3>Cursos Online</h3>
-          <p>Explora nuestra oferta de 11 cursos online disponibles con certificación oficial desde cualquier lugar.</p>
-          <p style="font-weight:700;color:var(--negro);font-size:1rem;margin-bottom:20px;">11 cursos disponibles</p>
-          <a href="cursos-online.html" class="btn btn-rojo">Ver catálogo</a>
-        </div>
-      </div>
+</div></section>
+<footer class="footer">
+  <div class="footer-i">
+    <div class="footer-grid">
+      <div><div class="fbrand"><img src="../assets/logo/imdac-logo.jpg" alt="IMDAC"><span>IMDAC</span></div>
+      <p class="fdesc">Instituto Mexicano de Arquitectura y Construccion. Formacion especializada con certificacion oficial en toda la Republica.</p></div>
+      <div><h4>Secciones</h4><ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="../pages/cursos-online.html">Cursos Online</a></li>
+        <li><a href="../pages/cursos-presenciales.html">Cursos Presenciales</a></li>
+        <li><a href="../pages/nosotros.html">Nosotros</a></li>
+        <li><a href="../pages/contacto.html">Contacto</a></li>
+      </ul></div>
+      <div><h4>Contacto</h4><ul>
+        <li><a href="mailto:grupoimdac@gmail.com">grupoimdac@gmail.com</a></li>
+        <li><a href="#" class="wa-auto" data-msg="Hola, contacto IMDAC">+52 1 236 107 8501</a></li>
+        <li><a href="https://www.facebook.com/IMDAC11" target="_blank">Facebook IMDAC</a></li>
+        <li><a href="../pages/politicas.html">Politicas de Privacidad</a></li>
+      </ul></div>
     </div>
-  </section>
+    <div class="fbot"><span>2026 IMDAC. Todos los derechos reservados.</span><a href="../pages/politicas.html" style="color:#999">Politicas de privacidad</a></div>
+  </div>
+</footer>
+<script>
+var WA='5212361078501';
+function waLink(m){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(m);}
+var WSVG='<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>';
+var CURSOS=[
+{n:'01',t:'Elaboracion de Numeros Generadores',p:'Tecnicas de medicion y calculo',img:'../assets/img/cursos/curso-01.jpg',tem:['Conceptos basicos de medicion en obra','Elaboracion de generadores por partida','Calculo de volumenes y cantidades','Control y verificacion de avances','Formatos y reportes de obra']},
+{n:'02',t:'Laminas Arquitectonicas Profesionales',p:'Arq. Alesiram Sotelo Penuelas',img:'../assets/img/cursos/curso-02.jpg',tem:['Normas de dibujo arquitectonico','Plantas, cortes y fachadas','Detalles constructivos a escala','Presentacion digital de proyectos','Software AutoCAD aplicado']},
+{n:'03',t:'Render Arquitectonico con D5 Render',p:'Ing. Edgar Santos Cano',img:'../assets/img/cursos/curso-03.jpg',tem:['Introduccion a D5 Render','Importacion de modelos 3D','Materiales y texturas realistas','Iluminacion natural y artificial','Exportacion y presentacion final']},
+{n:'04',t:'Paisajismo',p:'Arq. Laura Elizabeth Espinosa',img:'../assets/img/cursos/curso-04.jpg',tem:['Principios del diseno de paisaje','Seleccion de especies vegetales','Diseno de espacios exteriores','Sustentabilidad en paisajismo','Proyectos de jardineria urbana']},
+{n:'05',t:'Estimacion de Obra',p:'Ing. Enrique Guerrero',img:'../assets/img/cursos/curso-05.jpg',tem:['Lectura e interpretacion de planos','Catalogo de conceptos de obra','Analisis de precios unitarios','Presupuesto total de proyecto','Software de estimacion']},
+{n:'06',t:'Cuantificacion de Volumenes en Obra Carretera',p:'Lic. Margarita Lopez Lara',img:'../assets/img/cursos/curso-06.jpg',tem:['Normativa SCT vigente','Terraceria y movimiento de tierra','Cuantificacion de pavimentos','Obras de drenaje y puentes','Control de calidad en carreteras']},
+{n:'07',t:'Trabes AASHTO Fabricacion Montaje y Control',p:'Ing. Jorge Sanchez Hernandez',img:'../assets/img/cursos/curso-07.jpg',tem:['Normativa AASHTO aplicada','Proceso de fabricacion de trabes','Procedimiento de montaje y colado','Control de calidad estructural','Supervision y bitacora de obra']},
+{n:'08',t:'Supervision Integral de Obra Civil e Industrial',p:'Arq. Luis Roberto Bautista Retama',img:'../assets/img/cursos/curso-08.jpg',tem:['Rol del supervisor de obra','Lectura critica de proyectos','Control de calidad y especificaciones','Seguridad e higiene en obra','Reportes y documentacion de avance']},
+{n:'09',t:'Gerencia de Proyectos en Construccion',p:'Arq. Juan Pablo Hernandez Garcia',img:'../assets/img/cursos/curso-09.jpg',tem:['Fundamentos de project management','Planeacion y programacion de obra','Control de costos y presupuesto','Gestion de riesgos en proyectos','Liderazgo y trabajo en equipo']},
+{n:'10',t:'Revit Arquitectura PRO',p:'Arq. Luis Francisco Mendoza Andrade',img:'../assets/img/cursos/curso-10.jpg',tem:['Entorno BIM y flujo de trabajo','Modelado arquitectonico en Revit','Familias y componentes parametricos','Documentacion y planos ejecutivos','Coordinacion de disciplinas BIM']},
+{n:'11',t:'SketchUp Profesional Modelado Arquitectonico',p:'Arq. Luis Roberto Bautista Retama',img:'../assets/img/cursos/curso-11.jpg',tem:['Interfaz y herramientas basicas','Modelado de volumetrias y espacios','Aplicacion de materiales y texturas','Renderizado con extensiones','Presentacion de proyectos 3D']}
+];
+var SEDES=[{f:'21 FEB',c:'Puebla',e:'Puebla'},{f:'28 FEB',c:'Oaxaca',e:'Oaxaca'},{f:'7 MAR',c:'Tlaxcala',e:'Tlaxcala'},{f:'14 MAR',c:'Cuernavaca',e:'Morelos'},{f:'15 MAR',c:'Cuautla',e:'Morelos'},{f:'21 MAR',c:'Tulancingo',e:'Hidalgo'},{f:'22 MAR',c:'Pachuca',e:'Hidalgo'},{f:'28 MAR',c:'Xalapa',e:'Veracruz'},{f:'29 MAR',c:'Orizaba',e:'Veracruz'},{f:'12 ABR',c:'Veracruz Centro',e:'Veracruz'},{f:'18 ABR',c:'Villahermosa',e:'Tabasco'},{f:'19 ABR',c:'Coatzacoalcos',e:'Veracruz'}];
+var ONLINE=[1,2,3,4,5,6,7,8,9,10,11,12].map(function(i){return '../assets/img/alumnos-online/alumno-online-'+(i<10?'0'+i:i)+'.jpg';});
+var PRESENCIAL=['../assets/img/alumnos-presencial/alumno-presencial-01.jpg','../assets/img/alumnos-presencial/alumno-presencial-02.jpg'];
+function Carousel(oID,tID,dID,pID,nID,pv){
+  var o=document.getElementById(oID),t=document.getElementById(tID),d=document.getElementById(dID);
+  if(!o||!t)return;pv=pv||3;var pos=0;
+  function cs(){return Array.from(t.querySelectorAll('[data-c]'));}
+  function mp(){return Math.max(0,cs().length-pv);}
+  function go(n){pos=Math.max(0,Math.min(n,mp()));var c=cs(),w=c.length?c[0].offsetWidth+14:314;t.style.transform='translateX(-'+(pos*w)+'px)';if(d)d.querySelectorAll('.cdot').forEach(function(dot,i){dot.classList.toggle('on',i===pos);});}
+  function bd(){if(!d)return;d.innerHTML='';for(var i=0;i<=mp();i++){var dot=document.createElement('div');dot.className='cdot'+(i===0?' on':'');(function(idx){dot.onclick=function(){go(idx);};})(i);d.appendChild(dot);}}
+  var pb=document.getElementById(pID),nb=document.getElementById(nID);
+  if(pb)pb.onclick=function(){go(pos-1);};if(nb)nb.onclick=function(){go(pos+1);};
+  var sx=0,sp=0,drag=false;
+  o.addEventListener('mousedown',function(e){drag=true;sx=e.clientX;sp=pos;});
+  window.addEventListener('mousemove',function(e){if(!drag)return;var c=cs(),w=c.length?c[0].offsetWidth+14:314;go(sp+Math.round((sx-e.clientX)/w));});
+  window.addEventListener('mouseup',function(){drag=false;});
+  o.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sp=pos;},{passive:true});
+  o.addEventListener('touchmove',function(e){var c=cs(),w=c.length?c[0].offsetWidth+14:314;go(sp+Math.round((sx-e.touches[0].clientX)/w));},{passive:true});
+  window.addEventListener('resize',function(){bd();go(0);});
+  bd();go(0);
+}
+function cursoCard(c){
+  var tem=c.tem.map(function(t){return '<li>'+t+'</li>';}).join('');
+  return '<div class="ccard" data-c><div class="ccard-img"><img src="'+c.img+'" alt="'+c.t+'" loading="lazy"><span class="ccard-num">'+c.n+'</span></div><div class="ccard-body"><h3>'+c.t+'</h3><p class="ccard-pon">'+c.p+'</p><div class="ccard-tem"><div class="ccard-tem-title">Temario</div><ul>'+tem+'</ul></div><div class="ccard-cert"><strong>Certificado con valor curricular</strong>Folio unico y QR verificable</div><a href="'+waLink('Hola, me interesa el curso: '+c.t)+'" target="_blank" class="ccard-btn">'+WSVG+' Inscribirse</a></div></div>';
+}
+function initPage(){
+  var hbg=document.getElementById('hbg'),mob=document.getElementById('mobnav');
+  if(hbg&&mob)hbg.onclick=function(){mob.classList.toggle('open');};
+  document.querySelectorAll('.wa-auto').forEach(function(el){el.href=waLink(el.getAttribute('data-msg'));});
+  var ct=document.getElementById('cursosTrack');
+  if(ct){ct.innerHTML=CURSOS.map(cursoCard).join('');Carousel('cursosOuter','cursosTrack','cursosDots','cursosPrev','cursosNext',3);}
+  var cg=document.getElementById('cursosGrid');
+  if(cg){cg.innerHTML=CURSOS.map(function(c){var tem=c.tem.map(function(t){return '<li>'+t+'</li>';}).join('');return '<div class="ccard" style="width:100%"><div class="ccard-img"><img src="'+c.img+'" alt="'+c.t+'" loading="lazy"><span class="ccard-num">'+c.n+'</span></div><div class="ccard-body"><h3>'+c.t+'</h3><p class="ccard-pon">'+c.p+'</p><div class="ccard-tem"><div class="ccard-tem-title">Temario</div><ul>'+tem+'</ul></div><div class="ccard-cert"><strong>Certificado con valor curricular</strong>Folio unico y QR verificable</div><a href="'+waLink('Hola, me interesa el curso: '+c.t)+'" target="_blank" class="ccard-btn">'+WSVG+' Inscribirse</a></div></div>';}).join('');}
+  var at=document.getElementById('alumnosTrack');
+  if(at){at.innerHTML=ONLINE.map(function(s){return '<div class="acard" data-c><img src="'+s+'" alt="Alumno IMDAC" loading="lazy"></div>';}).join('')+PRESENCIAL.map(function(s){return '<div class="acard wide" data-c><img src="'+s+'" alt="Alumno presencial" loading="lazy"></div>';}).join('');Carousel('alumnosOuter','alumnosTrack','alumnosDots','alumnosPrev','alumnosNext',4);}
+  var sg=document.getElementById('sedesGrid');
+  if(sg){sg.innerHTML=SEDES.map(function(s){return '<div class="scard"><span class="scard-fecha">'+s.f+'</span><div class="scard-ciudad">'+s.c+'</div><div class="scard-estado">'+s.e+'</div><a href="'+waLink('Hola, informes sede '+s.c)+'" target="_blank" class="scard-wa">Informes</a></div>';}).join('');}
+}
+document.addEventListener('DOMContentLoaded',initPage);
+</script>
 
-  <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="../assets/logo/imdac-logo.jpg" alt="IMDAC" /><p>Instituto dedicado a la formación de profesionales del sector de arquitectura y construcción en México.</p><div class="footer-social"><a href="https://www.facebook.com/IMDAC11" target="_blank" class="social-btn">f</a><a href="https://wa.me/5212361078501" target="_blank" class="social-btn">W</a><a href="mailto:grupoimdac@gmail.com" class="social-btn">@</a></div></div><div><h4>Secciones</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="cursos-online.html">Cursos Online</a></li><li><a href="cursos-presenciales.html">Cursos Presenciales</a></li><li><a href="nosotros.html">Nosotros</a></li></ul></div><div><h4>Contacto</h4><ul><li><a href="mailto:grupoimdac@gmail.com">grupoimdac@gmail.com</a></li><li><a href="https://wa.me/5212361078501">+52 1 236 107 8501</a></li><li><a href="politicas.html">Políticas de Privacidad</a></li></ul></div></div><div class="footer-bottom"><span>© 2026 IMDAC. Todos los derechos reservados.</span></div></div></footer>
-  <script>function toggleMenu(){document.getElementById('navMenu').classList.toggle('open');}</script>
 </body>
 </html>
