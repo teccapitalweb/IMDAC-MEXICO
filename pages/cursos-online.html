@@ -220,39 +220,58 @@ function cursoCard(c){
   var tem=c.tem.map(function(t){return '<li>'+t+'</li>';}).join('');
   return '<div class="ccard" data-c><div class="ccard-img"><img src="'+c.img+'" alt="'+c.t+'" loading="lazy"><span class="ccard-num">'+c.n+'</span></div><div class="ccard-body"><h3>'+c.t+'</h3><p class="ccard-pon">'+c.p+'</p><div class="ccard-tem"><div class="ccard-tem-title">Temario</div><ul>'+tem+'</ul></div><div class="ccard-cert"><strong>Certificado con valor curricular</strong>Folio unico y QR verificable</div><a href="'+waLink('Hola, me interesa el curso: '+c.t)+'" target="_blank" class="ccard-btn">'+WSVG+' Inscribirse</a></div></div>';
 }
+function buildCursoCard(c){
+  var tem='';
+  for(var i=0;i<c.tem.length;i++)tem+='<li>'+c.tem[i]+'</li>';
+  return '<div class="ccard" style="width:100%">'
+    +'<div class="ccard-img"><img src="'+c.img+'" alt="'+c.t+'" loading="lazy"><span class="ccard-num">'+c.n+'</span></div>'
+    +'<div class="ccard-body">'
+    +'<span class="ccard-cat">'+(c.cat||'')+'</span>'
+    +'<h3>'+c.t+'</h3>'
+    +'<p class="ccard-pon">'+c.p+'</p>'
+    +'<div class="ccard-tem"><div class="ccard-tem-title">Temario</div><ul>'+tem+'</ul></div>'
+    +'<div class="ccard-cert"><strong>Certificado con valor curricular</strong>Folio unico y QR verificable</div>'
+    +'<a href="'+waLink('Hola, me interesa el curso: '+c.t)+'" target="_blank" class="ccard-btn">'+WSVG+' Inscribirse</a>'
+    +'</div></div>';
+}
+function initCursosGrid(){
+  var cg=document.getElementById('cursosGrid');
+  var ff=document.getElementById('cursosFilters');
+  if(!cg)return;
+  var CATS=['Todos','Construccion','Diseno','Render','Gestion','Software'];
+  var curCat='Todos';
+  function render(){
+    var list=curCat==='Todos'?CURSOS:CURSOS.filter(function(c){return c.cat===curCat;});
+    var html='';
+    for(var i=0;i<list.length;i++)html+=buildCursoCard(list[i]);
+    cg.innerHTML=html;
+  }
+  if(ff){
+    var btns='';
+    for(var i=0;i<CATS.length;i++){
+      var cat=CATS[i];
+      var cnt=cat==='Todos'?CURSOS.length:CURSOS.filter(function(c){return c.cat===cat;}).length;
+      btns+='<button class="cf-btn'+(cat==='Todos'?' on':'')+'" data-cat="'+cat+'">'+cat+' <span class="cf-count">'+cnt+'</span></button>';
+    }
+    ff.innerHTML=btns;
+    ff.querySelectorAll('.cf-btn').forEach(function(b){
+      b.addEventListener('click',function(){
+        curCat=this.getAttribute('data-cat');
+        ff.querySelectorAll('.cf-btn').forEach(function(x){x.classList.remove('on');});
+        this.classList.add('on');
+        render();
+      });
+    });
+  }
+  render();
+}
 function initPage(){
   var hbg=document.getElementById('hbg'),mob=document.getElementById('mobnav');
   if(hbg&&mob)hbg.onclick=function(){mob.classList.toggle('open');};
   document.querySelectorAll('.wa-auto').forEach(function(el){el.href=waLink(el.getAttribute('data-msg'));});
   var ct=document.getElementById('cursosTrack');
   if(ct){ct.innerHTML=CURSOS.map(cursoCard).join('');Carousel('cursosOuter','cursosTrack','cursosDots','cursosPrev','cursosNext',3);}
-  var cg=document.getElementById('cursosGrid');
-  function renderCursosGrid(list){
-    if(!cg)return;
-    cg.innerHTML=list.map(function(c){
-      var tem=c.tem.map(function(t){return '<li>'+t+'</li>';}).join('');
-      return '<div class="ccard" style="width:100%"><div class="ccard-img"><img src="'+c.img+'" alt="'+c.t+'" loading="lazy"><span class="ccard-num">'+c.n+'</span></div><div class="ccard-body"><span class="ccard-cat">'+(c.cat||'')+'</span><h3>'+c.t+'</h3><p class="ccard-pon">'+c.p+'</p><div class="ccard-tem"><div class="ccard-tem-title">Temario</div><ul>'+tem+'</ul></div><div class="ccard-cert"><strong>Certificado con valor curricular</strong>Folio unico y QR verificable</div><a href="'+waLink('Hola, me interesa el curso: '+c.t)+'" target="_blank" class="ccard-btn">'+WSVG+' Inscribirse</a></div></div>';
-    }).join('');
-  }
-  if(cg){
-    var cats=['Todos','Construccion','Diseno','Render','Gestion','Software'];
-    var curCat='Todos';
-    var ff=document.getElementById('cursosFilters');
-    function countCat(cat){return cat==='Todos'?CURSOS.length:CURSOS.filter(function(c){return c.cat===cat;}).length;}
-    if(ff){
-      ff.innerHTML=cats.map(function(cat){return '<button class="cf-btn'+(cat==='Todos'?' on':'')+'" data-cat="'+cat+'">'+cat+'<span class="cf-count">'+countCat(cat)+'</span></button>';}).join('');
-      ff.querySelectorAll('.cf-btn').forEach(function(b){
-        b.onclick=function(){
-          curCat=this.getAttribute('data-cat');
-          ff.querySelectorAll('.cf-btn').forEach(function(x){x.classList.remove('on');});
-          this.classList.add('on');
-          var filtered=curCat==='Todos'?CURSOS:CURSOS.filter(function(c){return c.cat===curCat;});
-          renderCursosGrid(filtered);
-        };
-      });
-    }
-    renderCursosGrid(CURSOS);
-  }
+  initCursosGrid();
   var at=document.getElementById('alumnosTrack');
   if(at){at.innerHTML=ONLINE.map(function(s){return '<div class="acard" data-c><img src="'+s+'" alt="Alumno IMDAC" loading="lazy"></div>';}).join('')+PRESENCIAL.map(function(s){return '<div class="acard wide" data-c><img src="'+s+'" alt="Alumno presencial" loading="lazy"></div>';}).join('');Carousel('alumnosOuter','alumnosTrack','alumnosDots','alumnosPrev','alumnosNext',4);}
   var sg=document.getElementById('sedesGrid');
