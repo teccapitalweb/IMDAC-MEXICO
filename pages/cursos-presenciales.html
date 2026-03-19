@@ -129,6 +129,10 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 @keyframes alScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .al-logo{height:56px;width:auto;max-width:130px;object-fit:contain;filter:grayscale(100%);opacity:.55;transition:all .3s}
 .al-logo:hover{filter:grayscale(0);opacity:1}
+
+.scard-img{width:100%;height:130px;overflow:hidden;border-radius:8px;margin-bottom:12px}
+.scard-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.scard:hover .scard-img img{transform:scale(1.05)}
 </style>
 
 
@@ -150,12 +154,6 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
     <p class="hero-sub">Aprende habilidades practicas en persona. 12 ciudades en toda la Republica Mexicana.</p>
   </div>
 </section>
-<section class="sec"><div class="sec-c">
-  <span class="sec-tag">Oferta presencial</span>
-  <h2 class="sec-tit">Nuestros cursos<br><em>presenciales.</em></h2>
-  <p class="sec-desc">Aprende en persona con instructores expertos. Todos incluyen certificacion oficial.</p>
-  <div class="cursos-grid" id="cursosGrid"></div>
-</div></section>
 <section class="sec gray"><div class="sec-c">
   <span class="sec-tag">Proximas fechas 2026</span>
   <h2 class="sec-tit">Encuentra la sede<br><em>mas cercana a ti.</em></h2>
@@ -209,19 +207,19 @@ var WA='5212361078501';
 function waLink(m){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(m);}
 var WSVG='<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>';
 var CURSOS=[
-{n:'01',t:'Elaboracion de Numeros Generadores',p:'Tecnicas de medicion y calculo',img:'../assets/img/cursos-presenciales/presencial-01.jpg',tem:['Conceptos basicos de medicion en obra','Elaboracion de generadores por partida','Calculo de volumenes y cantidades','Control y verificacion de avances','Formatos y reportes de obra']},
-{n:'02',t:'Laminas Arquitectonicas Profesionales',p:'Arq. Alesiram Sotelo Penuelas',img:'../assets/img/cursos-presenciales/presencial-02.jpg',tem:['Normas de dibujo arquitectonico','Plantas, cortes y fachadas','Detalles constructivos a escala','Presentacion digital de proyectos','Software AutoCAD aplicado']},
-{n:'03',t:'Render Arquitectonico con D5 Render',p:'Ing. Edgar Santos Cano',img:'../assets/img/cursos-presenciales/presencial-03.jpg',tem:['Introduccion a D5 Render','Importacion de modelos 3D','Materiales y texturas realistas','Iluminacion natural y artificial','Exportacion y presentacion final']},
-{n:'04',t:'Paisajismo',p:'Arq. Laura Elizabeth Espinosa',img:'../assets/img/cursos-presenciales/presencial-04.jpg',tem:['Principios del diseno de paisaje','Seleccion de especies vegetales','Diseno de espacios exteriores','Sustentabilidad en paisajismo','Proyectos de jardineria urbana']},
-{n:'05',t:'Estimacion de Obra',p:'Ing. Enrique Guerrero',img:'../assets/img/cursos-presenciales/presencial-05.jpg',tem:['Lectura e interpretacion de planos','Catalogo de conceptos de obra','Analisis de precios unitarios','Presupuesto total de proyecto','Software de estimacion']},
-{n:'06',t:'Cuantificacion de Volumenes en Obra Carretera',p:'Lic. Margarita Lopez Lara',img:'../assets/img/cursos-presenciales/presencial-06.jpg',tem:['Normativa SCT vigente','Terraceria y movimiento de tierra','Cuantificacion de pavimentos','Obras de drenaje y puentes','Control de calidad en carreteras']},
-{n:'07',t:'Trabes AASHTO Fabricacion Montaje y Control',p:'Ing. Jorge Sanchez Hernandez',img:'../assets/img/cursos-presenciales/presencial-07.jpg',tem:['Normativa AASHTO aplicada','Proceso de fabricacion de trabes','Procedimiento de montaje y colado','Control de calidad estructural','Supervision y bitacora de obra']},
-{n:'08',t:'Supervision Integral de Obra Civil e Industrial',p:'Arq. Luis Roberto Bautista Retama',img:'../assets/img/cursos-presenciales/presencial-08.jpg',tem:['Rol del supervisor de obra','Lectura critica de proyectos','Control de calidad y especificaciones','Seguridad e higiene en obra','Reportes y documentacion de avance']},
-{n:'09',t:'Gerencia de Proyectos en Construccion',p:'Arq. Juan Pablo Hernandez Garcia',img:'../assets/img/cursos-presenciales/presencial-09.jpg',tem:['Fundamentos de project management','Planeacion y programacion de obra','Control de costos y presupuesto','Gestion de riesgos en proyectos','Liderazgo y trabajo en equipo']},
-{n:'10',t:'Revit Arquitectura PRO',p:'Arq. Luis Francisco Mendoza Andrade',img:'../assets/img/cursos-presenciales/presencial-10.jpg',tem:['Entorno BIM y flujo de trabajo','Modelado arquitectonico en Revit','Familias y componentes parametricos','Documentacion y planos ejecutivos','Coordinacion de disciplinas BIM']},
-{n:'11',t:'SketchUp Profesional Modelado Arquitectonico',p:'Arq. Luis Roberto Bautista Retama',img:'../assets/img/cursos-presenciales/presencial-11.jpg',tem:['Interfaz y herramientas basicas','Modelado de volumetrias y espacios','Aplicacion de materiales y texturas','Renderizado con extensiones','Presentacion de proyectos 3D']}
+{n:'01',t:'Elaboracion de Numeros Generadores',p:'Tecnicas de medicion y calculo',img:'../assets/img/cursos/curso-01.jpg',tem:['Conceptos basicos de medicion en obra','Elaboracion de generadores por partida','Calculo de volumenes y cantidades','Control y verificacion de avances','Formatos y reportes de obra']},
+{n:'02',t:'Laminas Arquitectonicas Profesionales',p:'Arq. Alesiram Sotelo Penuelas',img:'../assets/img/cursos/curso-02.jpg',tem:['Normas de dibujo arquitectonico','Plantas, cortes y fachadas','Detalles constructivos a escala','Presentacion digital de proyectos','Software AutoCAD aplicado']},
+{n:'03',t:'Render Arquitectonico con D5 Render',p:'Ing. Edgar Santos Cano',img:'../assets/img/cursos/curso-03.jpg',tem:['Introduccion a D5 Render','Importacion de modelos 3D','Materiales y texturas realistas','Iluminacion natural y artificial','Exportacion y presentacion final']},
+{n:'04',t:'Paisajismo',p:'Arq. Laura Elizabeth Espinosa',img:'../assets/img/cursos/curso-04.jpg',tem:['Principios del diseno de paisaje','Seleccion de especies vegetales','Diseno de espacios exteriores','Sustentabilidad en paisajismo','Proyectos de jardineria urbana']},
+{n:'05',t:'Estimacion de Obra',p:'Ing. Enrique Guerrero',img:'../assets/img/cursos/curso-05.jpg',tem:['Lectura e interpretacion de planos','Catalogo de conceptos de obra','Analisis de precios unitarios','Presupuesto total de proyecto','Software de estimacion']},
+{n:'06',t:'Cuantificacion de Volumenes en Obra Carretera',p:'Lic. Margarita Lopez Lara',img:'../assets/img/cursos/curso-06.jpg',tem:['Normativa SCT vigente','Terraceria y movimiento de tierra','Cuantificacion de pavimentos','Obras de drenaje y puentes','Control de calidad en carreteras']},
+{n:'07',t:'Trabes AASHTO Fabricacion Montaje y Control',p:'Ing. Jorge Sanchez Hernandez',img:'../assets/img/cursos/curso-07.jpg',tem:['Normativa AASHTO aplicada','Proceso de fabricacion de trabes','Procedimiento de montaje y colado','Control de calidad estructural','Supervision y bitacora de obra']},
+{n:'08',t:'Supervision Integral de Obra Civil e Industrial',p:'Arq. Luis Roberto Bautista Retama',img:'../assets/img/cursos/curso-08.jpg',tem:['Rol del supervisor de obra','Lectura critica de proyectos','Control de calidad y especificaciones','Seguridad e higiene en obra','Reportes y documentacion de avance']},
+{n:'09',t:'Gerencia de Proyectos en Construccion',p:'Arq. Juan Pablo Hernandez Garcia',img:'../assets/img/cursos/curso-09.jpg',tem:['Fundamentos de project management','Planeacion y programacion de obra','Control de costos y presupuesto','Gestion de riesgos en proyectos','Liderazgo y trabajo en equipo']},
+{n:'10',t:'Revit Arquitectura PRO',p:'Arq. Luis Francisco Mendoza Andrade',img:'../assets/img/cursos/curso-10.jpg',tem:['Entorno BIM y flujo de trabajo','Modelado arquitectonico en Revit','Familias y componentes parametricos','Documentacion y planos ejecutivos','Coordinacion de disciplinas BIM']},
+{n:'11',t:'SketchUp Profesional Modelado Arquitectonico',p:'Arq. Luis Roberto Bautista Retama',img:'../assets/img/cursos/curso-11.jpg',tem:['Interfaz y herramientas basicas','Modelado de volumetrias y espacios','Aplicacion de materiales y texturas','Renderizado con extensiones','Presentacion de proyectos 3D']}
 ];
-var SEDES=[{f:'21 FEB',c:'Puebla',e:'Puebla'},{f:'28 FEB',c:'Oaxaca',e:'Oaxaca'},{f:'7 MAR',c:'Tlaxcala',e:'Tlaxcala'},{f:'14 MAR',c:'Cuernavaca',e:'Morelos'},{f:'15 MAR',c:'Cuautla',e:'Morelos'},{f:'21 MAR',c:'Tulancingo',e:'Hidalgo'},{f:'22 MAR',c:'Pachuca',e:'Hidalgo'},{f:'28 MAR',c:'Xalapa',e:'Veracruz'},{f:'29 MAR',c:'Orizaba',e:'Veracruz'},{f:'12 ABR',c:'Veracruz Centro',e:'Veracruz'},{f:'18 ABR',c:'Villahermosa',e:'Tabasco'},{f:'19 ABR',c:'Coatzacoalcos',e:'Veracruz'}];
+var SEDES=[{f:'21 FEB',c:'Puebla',e:'Puebla',img:'../assets/img/cursos-presenciales/presencial-01.jpg'},{f:'28 FEB',c:'Oaxaca',e:'Oaxaca',img:'../assets/img/cursos-presenciales/presencial-02.jpg'},{f:'7 MAR',c:'Tlaxcala',e:'Tlaxcala',img:'../assets/img/cursos-presenciales/presencial-03.jpg'},{f:'14 MAR',c:'Cuernavaca',e:'Morelos',img:'../assets/img/cursos-presenciales/presencial-04.jpg'},{f:'15 MAR',c:'Cuautla',e:'Morelos',img:'../assets/img/cursos-presenciales/presencial-05.jpg'},{f:'21 MAR',c:'Tulancingo',e:'Hidalgo',img:'../assets/img/cursos-presenciales/presencial-06.jpg'},{f:'22 MAR',c:'Pachuca',e:'Hidalgo',img:'../assets/img/cursos-presenciales/presencial-07.jpg'},{f:'28 MAR',c:'Xalapa',e:'Veracruz',img:'../assets/img/cursos-presenciales/presencial-08.jpg'},{f:'29 MAR',c:'Orizaba',e:'Veracruz',img:'../assets/img/cursos-presenciales/presencial-09.jpg'},{f:'12 ABR',c:'Veracruz Centro',e:'Veracruz',img:'../assets/img/cursos-presenciales/presencial-10.jpg'},{f:'18 ABR',c:'Villahermosa',e:'Tabasco',img:'../assets/img/cursos-presenciales/presencial-11.jpg'},{f:'19 ABR',c:'Coatzacoalcos',e:'Veracruz',img:'../assets/img/cursos-presenciales/presencial-12.jpg'}];
 var ONLINE=[1,2,3,4,5,6,7,8,9,10,11,12].map(function(i){return '../assets/img/alumnos-online/alumno-online-'+(i<10?'0'+i:i)+'.jpg';});
 var PRESENCIAL=['../assets/img/alumnos-presencial/alumno-presencial-01.jpg','../assets/img/alumnos-presencial/alumno-presencial-02.jpg'];
 function Carousel(oID,tID,dID,pID,nID,pv){
@@ -257,7 +255,7 @@ function initPage(){
   var at=document.getElementById('alumnosTrack');
   if(at){at.innerHTML=ONLINE.map(function(s){return '<div class="acard" data-c><img src="'+s+'" alt="Alumno IMDAC" loading="lazy"></div>';}).join('')+PRESENCIAL.map(function(s){return '<div class="acard wide" data-c><img src="'+s+'" alt="Alumno presencial" loading="lazy"></div>';}).join('');Carousel('alumnosOuter','alumnosTrack','alumnosDots','alumnosPrev','alumnosNext',4);}
   var sg=document.getElementById('sedesGrid');
-  if(sg){sg.innerHTML=SEDES.map(function(s){return '<div class="scard"><span class="scard-fecha">'+s.f+'</span><div class="scard-ciudad">'+s.c+'</div><div class="scard-estado">'+s.e+'</div><a href="'+waLink('Hola, informes sede '+s.c)+'" target="_blank" class="scard-wa">Informes</a></div>';}).join('');}
+  if(sg){sg.innerHTML=SEDES.map(function(s){return '<div class="scard">'+(s.img?'<div class="scard-img"><img src="'+s.img+'" alt="'+s.c+'" loading="lazy"></div>':'')+'<span class="scard-fecha">'+s.f+'</span><div class="scard-ciudad">'+s.c+'</div><div class="scard-estado">'+s.e+'</div><a href="'+waLink('Hola, informes sede '+s.c)+'" target="_blank" class="scard-wa">Informes</a></div>';}).join('');}
 }
 document.addEventListener('DOMContentLoaded',initPage);
 
@@ -271,7 +269,7 @@ document.addEventListener('DOMContentLoaded',initPage);
     var sg=document.getElementById('sedesGrid');
     if(!sg)return;
     var filtered=current==='Todos'?SEDES:SEDES.filter(function(s){return s.e===current;});
-    sg.innerHTML=filtered.map(function(s){return '<div class="scard"><span class="scard-fecha">'+s.f+'</span><div class="scard-ciudad">'+s.c+'</div><div class="scard-estado">'+s.e+'</div><a href="'+waLink('Hola, informes sede '+s.c)+'" target="_blank" class="scard-wa">Informes</a></div>';}).join('');
+    sg.innerHTML=filtered.map(function(s){return '<div class="scard">'+(s.img?'<div class="scard-img"><img src="'+s.img+'" alt="'+s.c+'" loading="lazy"></div>':'')+'<span class="scard-fecha">'+s.f+'</span><div class="scard-ciudad">'+s.c+'</div><div class="scard-estado">'+s.e+'</div><a href="'+waLink('Hola, informes sede '+s.c)+'" target="_blank" class="scard-wa">Informes</a></div>';}).join('');
   }
   ff.innerHTML=estados.map(function(e){return '<button class="sf-btn'+(e==='Todos'?' on':'')+'" data-e="'+e+'">'+e+'</button>';}).join('');
   ff.querySelectorAll('.sf-btn').forEach(function(b){

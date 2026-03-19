@@ -129,6 +129,10 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 @keyframes alScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .al-logo{height:56px;width:auto;max-width:130px;object-fit:contain;filter:grayscale(100%);opacity:.55;transition:all .3s}
 .al-logo:hover{filter:grayscale(0);opacity:1}
+
+.scard-img{width:100%;height:130px;overflow:hidden;border-radius:8px;margin-bottom:12px}
+.scard-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.scard:hover .scard-img img{transform:scale(1.05)}
 </style>
 
 
@@ -275,7 +279,7 @@ var CURSOS=[
 {n:'10',t:'Revit Arquitectura PRO',p:'Arq. Luis Francisco Mendoza Andrade',img:'assets/img/cursos/curso-10.jpg',tem:['Entorno BIM y flujo de trabajo','Modelado arquitectonico en Revit','Familias y componentes parametricos','Documentacion y planos ejecutivos','Coordinacion de disciplinas BIM']},
 {n:'11',t:'SketchUp Profesional Modelado Arquitectonico',p:'Arq. Luis Roberto Bautista Retama',img:'assets/img/cursos/curso-11.jpg',tem:['Interfaz y herramientas basicas','Modelado de volumetrias y espacios','Aplicacion de materiales y texturas','Renderizado con extensiones','Presentacion de proyectos 3D']}
 ];
-var SEDES=[{f:'21 FEB',c:'Puebla',e:'Puebla'},{f:'28 FEB',c:'Oaxaca',e:'Oaxaca'},{f:'7 MAR',c:'Tlaxcala',e:'Tlaxcala'},{f:'14 MAR',c:'Cuernavaca',e:'Morelos'},{f:'15 MAR',c:'Cuautla',e:'Morelos'},{f:'21 MAR',c:'Tulancingo',e:'Hidalgo'},{f:'22 MAR',c:'Pachuca',e:'Hidalgo'},{f:'28 MAR',c:'Xalapa',e:'Veracruz'},{f:'29 MAR',c:'Orizaba',e:'Veracruz'},{f:'12 ABR',c:'Veracruz Centro',e:'Veracruz'},{f:'18 ABR',c:'Villahermosa',e:'Tabasco'},{f:'19 ABR',c:'Coatzacoalcos',e:'Veracruz'}];
+var SEDES=[{f:'21 FEB',c:'Puebla',e:'Puebla',img:'assets/img/cursos-presenciales/presencial-01.jpg'},{f:'28 FEB',c:'Oaxaca',e:'Oaxaca',img:'assets/img/cursos-presenciales/presencial-02.jpg'},{f:'7 MAR',c:'Tlaxcala',e:'Tlaxcala',img:'assets/img/cursos-presenciales/presencial-03.jpg'},{f:'14 MAR',c:'Cuernavaca',e:'Morelos',img:'assets/img/cursos-presenciales/presencial-04.jpg'},{f:'15 MAR',c:'Cuautla',e:'Morelos',img:'assets/img/cursos-presenciales/presencial-05.jpg'},{f:'21 MAR',c:'Tulancingo',e:'Hidalgo',img:'assets/img/cursos-presenciales/presencial-06.jpg'},{f:'22 MAR',c:'Pachuca',e:'Hidalgo',img:'assets/img/cursos-presenciales/presencial-07.jpg'},{f:'28 MAR',c:'Xalapa',e:'Veracruz',img:'assets/img/cursos-presenciales/presencial-08.jpg'},{f:'29 MAR',c:'Orizaba',e:'Veracruz',img:'assets/img/cursos-presenciales/presencial-09.jpg'},{f:'12 ABR',c:'Veracruz Centro',e:'Veracruz',img:'assets/img/cursos-presenciales/presencial-10.jpg'},{f:'18 ABR',c:'Villahermosa',e:'Tabasco',img:'assets/img/cursos-presenciales/presencial-11.jpg'},{f:'19 ABR',c:'Coatzacoalcos',e:'Veracruz',img:'assets/img/cursos-presenciales/presencial-12.jpg'}];
 var ONLINE=[1,2,3,4,5,6,7,8,9,10,11,12].map(function(i){return 'assets/img/alumnos-online/alumno-online-'+(i<10?'0'+i:i)+'.jpg';});
 var PRESENCIAL=['assets/img/alumnos-presencial/alumno-presencial-01.jpg','assets/img/alumnos-presencial/alumno-presencial-02.jpg'];
 function Carousel(oID,tID,dID,pID,nID,pv){
@@ -311,7 +315,7 @@ function initPage(){
   var at=document.getElementById('alumnosTrack');
   if(at){at.innerHTML=ONLINE.map(function(s){return '<div class="acard" data-c><img src="'+s+'" alt="Alumno IMDAC" loading="lazy"></div>';}).join('')+PRESENCIAL.map(function(s){return '<div class="acard wide" data-c><img src="'+s+'" alt="Alumno presencial" loading="lazy"></div>';}).join('');Carousel('alumnosOuter','alumnosTrack','alumnosDots','alumnosPrev','alumnosNext',4);}
   var sg=document.getElementById('sedesGrid');
-  if(sg){sg.innerHTML=SEDES.map(function(s){return '<div class="scard"><span class="scard-fecha">'+s.f+'</span><div class="scard-ciudad">'+s.c+'</div><div class="scard-estado">'+s.e+'</div><a href="'+waLink('Hola, informes sede '+s.c)+'" target="_blank" class="scard-wa">Informes</a></div>';}).join('');}
+  if(sg){sg.innerHTML=SEDES.map(function(s){return '<div class="scard">'+(s.img?'<div class="scard-img"><img src="'+s.img+'" alt="'+s.c+'" loading="lazy"></div>':'')+'<span class="scard-fecha">'+s.f+'</span><div class="scard-ciudad">'+s.c+'</div><div class="scard-estado">'+s.e+'</div><a href="'+waLink('Hola, informes sede '+s.c)+'" target="_blank" class="scard-wa">Informes</a></div>';}).join('');}
 }
 document.addEventListener('DOMContentLoaded',initPage);
 
@@ -367,7 +371,7 @@ document.addEventListener('DOMContentLoaded',initPage);
     var sg=document.getElementById('sedesGrid');
     if(!sg)return;
     var filtered=current==='Todos'?SEDES:SEDES.filter(function(s){return s.e===current;});
-    sg.innerHTML=filtered.map(function(s){return '<div class="scard"><span class="scard-fecha">'+s.f+'</span><div class="scard-ciudad">'+s.c+'</div><div class="scard-estado">'+s.e+'</div><a href="'+waLink('Hola, informes sede '+s.c)+'" target="_blank" class="scard-wa">Informes</a></div>';}).join('');
+    sg.innerHTML=filtered.map(function(s){return '<div class="scard">'+(s.img?'<div class="scard-img"><img src="'+s.img+'" alt="'+s.c+'" loading="lazy"></div>':'')+'<span class="scard-fecha">'+s.f+'</span><div class="scard-ciudad">'+s.c+'</div><div class="scard-estado">'+s.e+'</div><a href="'+waLink('Hola, informes sede '+s.c)+'" target="_blank" class="scard-wa">Informes</a></div>';}).join('');
   }
   ff.innerHTML=estados.map(function(e){return '<button class="sf-btn'+(e==='Todos'?' on':'')+'" data-e="'+e+'">'+e+'</button>';}).join('');
   ff.querySelectorAll('.sf-btn').forEach(function(b){
