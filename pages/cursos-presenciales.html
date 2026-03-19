@@ -56,7 +56,7 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 .cdots{display:flex;gap:5px;align-items:center}.cdot{width:6px;height:6px;border-radius:50%;background:rgba(0,0,0,0.15);cursor:pointer;transition:all .2s}.cdot.on{background:#E31E24;width:16px;border-radius:3px}
 .ccard{width:300px;flex-shrink:0;background:#fff;border-radius:16px;overflow:hidden;border:1px solid #ebebeb;transition:all .2s;display:flex;flex-direction:column}
 .ccard:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,0.09)}
-.ccard-img{position:relative;height:170px;overflow:hidden;flex-shrink:0}.ccard-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}.ccard:hover .ccard-img img{transform:scale(1.05)}
+.ccard-img{position:relative;aspect-ratio:16/9;overflow:hidden;flex-shrink:0;background:#1d1d1f}.ccard-img img{width:100%;height:100%;object-fit:contain;transition:transform .4s}.ccard:hover .ccard-img img{transform:scale(1.03)}
 .ccard-num{position:absolute;top:10px;left:10px;background:#E31E24;color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:50px}
 .ccard-body{padding:18px;display:flex;flex-direction:column;flex:1}
 .ccard-body h3{font-size:13px;font-weight:700;line-height:1.35;margin-bottom:4px;color:#1d1d1f}
@@ -105,6 +105,30 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 .fbot{border-top:1px solid #e5e5e5;padding-top:18px;display:flex;justify-content:space-between;font-size:12px;color:#999}
 @media(max-width:1024px){.bento,.mv-grid,.pgrid{grid-template-columns:repeat(2,1fr)}.bc.wide{grid-column:span 2}.sedes-grid{grid-template-columns:repeat(3,1fr)}.cursos-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:768px){.navlinks,.nwa{display:none}.hbg{display:flex}.stats{gap:20px}.stat-n{font-size:28px}.hero-btns{flex-direction:column;align-items:center}.bento,.mv-grid,.pgrid,.contact-grid{grid-template-columns:1fr}.bc.wide{grid-column:span 1}.sedes-grid{grid-template-columns:repeat(2,1fr)}.ccard{width:260px}.acard{width:200px}.acard.wide{width:300px}.footer-grid{grid-template-columns:1fr;gap:28px}.fbot{flex-direction:column;gap:6px;text-align:center}.cursos-grid{grid-template-columns:1fr}}
+
+@keyframes slideLeft{from{opacity:0;transform:translateX(-50px)}to{opacity:1;transform:translateX(0)}}
+.ha{opacity:0;animation:slideLeft .8s cubic-bezier(.22,1,.36,1) forwards}
+.ha1{animation-delay:.05s}.ha2{animation-delay:.2s}.ha3{animation-delay:.4s}.ha4{animation-delay:.6s}.ha5{animation-delay:.8s}
+.reviews-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent)}
+.reviews-track{display:flex;gap:16px;width:max-content;animation:rvScroll 40s linear infinite}
+.reviews-track:hover{animation-play-state:paused}
+@keyframes rvScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.rcard{width:290px;flex-shrink:0;background:#fff;border-radius:16px;border:1px solid #ebebeb;padding:22px;display:flex;flex-direction:column;gap:10px}
+.rcard-stars{color:#E31E24;font-size:13px;letter-spacing:1px}
+.rcard-text{font-size:12.5px;color:#444;line-height:1.75;flex:1}
+.rcard-author{display:flex;align-items:center;gap:10px;margin-top:4px}
+.rcard-av{width:36px;height:36px;border-radius:50%;background:#E31E24;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0}
+.rcard-name{font-size:13px;font-weight:700;color:#1d1d1f}
+.rcard-role{font-size:11px;color:#999}
+.sedes-filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:28px}
+.sf-btn{padding:7px 18px;border-radius:50px;border:1px solid #ddd;background:#fff;font-size:12px;font-weight:600;cursor:pointer;color:#555;transition:all .2s}
+.sf-btn:hover,.sf-btn.on{background:#E31E24;color:#fff;border-color:#E31E24}
+.aliados-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent)}
+.aliados-track{display:flex;gap:48px;width:max-content;animation:alScroll 45s linear infinite;align-items:center}
+.aliados-track:hover{animation-play-state:paused}
+@keyframes alScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.al-logo{height:56px;width:auto;max-width:130px;object-fit:contain;filter:grayscale(100%);opacity:.55;transition:all .3s}
+.al-logo:hover{filter:grayscale(0);opacity:1}
 </style>
 
 
@@ -112,7 +136,7 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 <body>
 <nav class="nav">
   <div class="nav-i">
-    <a href="../index.html" class="brand"><img src="../assets/logo/imdac-logo.jpg" alt="IMDAC"><b>IMDAC</b></a>
+    <a href="../index.html" class="brand"><img src="../assets/logo/imdac-logo-new.png" alt="IMDAC" style="height:44px"></a>
     <ul class="navlinks"><li><a href="../index.html">Inicio</a></li><li><a href="../pages/cursos-online.html">Cursos Online</a></li><li><a href="../pages/cursos-presenciales.html">Presenciales</a></li><li><a href="../pages/nosotros.html">Nosotros</a></li><li><a href="../pages/contacto.html">Contacto</a></li></ul>
     <a href="#" class="nwa wa-auto" data-msg="Hola, informes IMDAC"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
     <div class="hbg" id="hbg"><span></span><span></span><span></span></div>
@@ -130,7 +154,15 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
   <span class="sec-tag">Proximas fechas 2026</span>
   <h2 class="sec-tit">Encuentra la sede<br><em>mas cercana a ti.</em></h2>
   <p class="sec-desc">Selecciona tu ciudad y contactanos para confirmar disponibilidad.</p>
+  <div class="sedes-filters" id="sedesFilters"></div>
   <div class="sedes-grid" id="sedesGrid"></div>
+</div></section>
+
+<section class="sec gray"><div class="sec-c">
+  <span class="sec-tag">Galeria de eventos</span>
+  <h2 class="sec-tit">Cursos presenciales<br><em>en todo el pais.</em></h2>
+  <p class="sec-desc">Evidencias de nuestros cursos presenciales realizados en distintas ciudades.</p>
+  <div class="wrap"><div class="outer" id="pgalOuter"><div class="track" id="pgalTrack"></div></div></div>
 </div></section>
 <section class="sec gray"><div class="sec-c">
   <span class="sec-tag">Aspectos generales</span>
@@ -153,7 +185,7 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 <footer class="footer">
   <div class="footer-i">
     <div class="footer-grid">
-      <div><div class="fbrand"><img src="../assets/logo/imdac-logo.jpg" alt="IMDAC"><span>IMDAC</span></div>
+      <div><div class="fbrand"><img src="../assets/logo/imdac-logo-new.png" alt="IMDAC" style="height:44px"></div>
       <p class="fdesc">Instituto Mexicano de Arquitectura y Construccion. Formacion especializada con certificacion oficial en toda la Republica.</p></div>
       <div><h4>Secciones</h4><ul>
         <li><a href="../index.html">Inicio</a></li>
@@ -228,6 +260,46 @@ function initPage(){
   if(sg){sg.innerHTML=SEDES.map(function(s){return '<div class="scard"><span class="scard-fecha">'+s.f+'</span><div class="scard-ciudad">'+s.c+'</div><div class="scard-estado">'+s.e+'</div><a href="'+waLink('Hola, informes sede '+s.c)+'" target="_blank" class="scard-wa">Informes</a></div>';}).join('');}
 }
 document.addEventListener('DOMContentLoaded',initPage);
+
+// ---- PRESENCIALES GALLERY ----
+(function(){
+  var pt=document.getElementById('pgalTrack');
+  if(!pt)return;
+  var imgs=[];
+  for(var i=1;i<=12;i++)imgs.push('../assets/img/cursos-presenciales/presencial-'+(i<10?'0'+i:i)+'.jpg');
+  pt.innerHTML=imgs.map(function(s){return '<div data-c style="width:280px;flex-shrink:0;border-radius:12px;overflow:hidden;aspect-ratio:4/3"><img src="'+s+'" alt="Curso Presencial" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>';}).join('');
+  var o=document.getElementById('pgalOuter');
+  if(!o)return;
+  var pos=0;
+  function cs(){return Array.from(pt.querySelectorAll('[data-c]'));}
+  function mp(){return Math.max(0,cs().length-3);}
+  setInterval(function(){
+    pos=pos<mp()?pos+1:0;
+    var c=cs(),w=c.length?c[0].offsetWidth+14:294;
+    pt.style.transition='transform .5s ease';
+    pt.style.transform='translateX(-'+(pos*w)+'px)';
+  },3000);
+})();
+// ---- SEDES FILTER PRESENCIALES ----
+(function(){
+  var ff=document.getElementById('sedesFilters');
+  if(!ff)return;
+  var estados=['Todos'].concat([...new Set(SEDES.map(function(s){return s.e;}))]);
+  var current='Todos';
+  function render(){
+    var sg=document.getElementById('sedesGrid');
+    if(!sg)return;
+    var filtered=current==='Todos'?SEDES:SEDES.filter(function(s){return s.e===current;});
+    sg.innerHTML=filtered.map(function(s){return '<div class="scard"><span class="scard-fecha">'+s.f+'</span><div class="scard-ciudad">'+s.c+'</div><div class="scard-estado">'+s.e+'</div><a href="'+waLink('Hola, informes sede '+s.c)+'" target="_blank" class="scard-wa">Informes</a></div>';}).join('');
+  }
+  ff.innerHTML=estados.map(function(e){return '<button class="sf-btn'+(e==='Todos'?' on':'')+'" data-e="'+e+'">'+e+'</button>';}).join('');
+  ff.querySelectorAll('.sf-btn').forEach(function(b){
+    b.onclick=function(){current=this.getAttribute('data-e');ff.querySelectorAll('.sf-btn').forEach(function(x){x.classList.remove('on');});this.classList.add('on');render();};
+  });
+  render();
+  var sg=document.getElementById('sedesGrid');if(sg)sg.innerHTML='';
+})();
+
 </script>
 
 </body>
