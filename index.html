@@ -62,7 +62,7 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 .cdots{display:flex;gap:5px;align-items:center}.cdot{width:6px;height:6px;border-radius:50%;background:rgba(0,0,0,0.15);cursor:pointer;transition:all .2s}.cdot.on{background:#E31E24;width:16px;border-radius:3px}
 .ccard{width:300px;flex-shrink:0;background:#fff;border-radius:16px;overflow:hidden;border:1px solid #ebebeb;transition:all .2s;display:flex;flex-direction:column}
 .ccard:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,0.09)}
-.ccard-img{position:relative;aspect-ratio:16/9;overflow:hidden;flex-shrink:0;background:#1d1d1f}.ccard-img img{width:100%;height:100%;object-fit:contain;transition:transform .4s}.ccard:hover .ccard-img img{transform:scale(1.03)}
+.ccard-img{position:relative;aspect-ratio:16/9;overflow:hidden;flex-shrink:0;background:#f7f7f8}.ccard-img img{width:100%;height:100%;object-fit:contain;transition:transform .4s}.ccard:hover .ccard-img img{transform:scale(1.02)}
 .ccard-num{position:absolute;top:10px;left:10px;background:#E31E24;color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:50px}
 .ccard-body{padding:18px;display:flex;flex-direction:column;flex:1}
 .ccard-body h3{font-size:13px;font-weight:700;line-height:1.35;margin-bottom:4px;color:#1d1d1f}
@@ -75,6 +75,7 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 .ccard-cert{font-size:10px;color:#888;border-left:2px solid #E31E24;padding:5px 8px;margin-bottom:12px}
 .ccard-cert strong{display:block;font-size:11px;color:#1d1d1f;margin-bottom:1px}
 .ccard-btn{display:flex;align-items:center;justify-content:center;gap:5px;padding:10px;background:#1d1d1f;color:#fff;border-radius:50px;font-size:12px;font-weight:600;transition:all .2s;margin-top:auto}.ccard-btn:hover{background:#E31E24}
+#cursosOuter{background:#f7f7f8;border-radius:20px;padding-top:18px;padding-bottom:18px}#cursosTrack .ccard{width:calc((min(1100px, 100vw - 80px) - 28px)/3);min-width:0;max-width:357px}#cursosTrack .ccard-img{aspect-ratio:4/3}#cursosTrack .ccard-body{padding:16px 18px}#cursosTrack .ccard-body h3{font-size:16px;line-height:1.3;margin-bottom:6px}#cursosTrack .ccard-pon{font-size:12px;line-height:1.45;margin-bottom:13px}#cursosTrack .ccard-cert{margin:0 0 13px}#cursosTrack .ccard-btn{width:100%;border:0;cursor:pointer;background:#1d1d1f}.course-modal{position:fixed;inset:0;z-index:2100;background:rgba(21,18,19,.66);display:none;align-items:center;justify-content:center;padding:20px}.course-modal.open{display:flex}.course-dialog{position:relative;width:min(820px,100%);max-height:92vh;overflow:auto;border-radius:22px;background:#fff;padding:28px}.course-detail{display:grid;grid-template-columns:minmax(250px,.9fr) 1.1fr;gap:26px}.course-dialog img{width:100%;max-height:560px;object-fit:contain;background:#f7f7f8;border-radius:13px}.course-dialog h2{font-size:clamp(24px,3vw,36px);letter-spacing:-.04em;line-height:1.08;margin:8px 0}.course-area{font-size:10px;letter-spacing:.12em;font-weight:800;color:#e31e24;text-transform:uppercase}.course-dialog p{font-size:14px;line-height:1.6;color:#666;margin-bottom:14px}.course-topics{padding:16px;background:#f7f7f8;border-radius:13px;margin:15px 0}.course-topics strong{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px}.course-topics li{font-size:13px;color:#444;line-height:1.55;margin:4px 0}.course-topics li::before{content:'•';color:#e31e24;font-weight:900;margin-right:7px}.course-close{position:absolute;right:15px;top:14px;border:1px solid #ddd;background:#fff;width:36px;height:36px;border-radius:50%;font-size:20px;cursor:pointer;z-index:1}
 .cursos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.cursos-grid .ccard{width:100%}
 .acard{width:260px;flex-shrink:0;border-radius:14px;overflow:hidden;aspect-ratio:1}.acard img{width:100%;height:100%;object-fit:cover}.acard.wide{width:380px;aspect-ratio:16/9}
 .mv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
@@ -110,7 +111,7 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 .footer ul{display:flex;flex-direction:column;gap:10px}.footer ul a{font-size:13px;color:#333;transition:color .2s}.footer ul a:hover{color:#E31E24}
 .fbot{border-top:1px solid #e5e5e5;padding-top:18px;display:flex;justify-content:space-between;font-size:12px;color:#999}
 @media(max-width:1024px){.bento,.mv-grid,.pgrid{grid-template-columns:repeat(2,1fr)}.bc.wide{grid-column:span 2}.sedes-grid{grid-template-columns:repeat(3,1fr)}.cursos-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:768px){.nav{height:60px}.nav-i{padding:0 20px}.hero{min-height:680px;padding:72px 26px 40px;align-items:flex-start}.hero-bg::before{background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(255,255,255,.73) 62%,rgba(255,255,255,.9))}.hero-bg::after{left:16px;top:30px;bottom:25px}.hero-c{margin:32px 0 0 15px}.hero h1{font-size:clamp(42px,12vw,58px)}.hero-btns{flex-direction:column;align-items:flex-start}.stats{gap:17px}.stat-n{font-size:28px}.vip-card{padding:13px;gap:11px}.vip-copy b{font-size:14px}.bento,.mv-grid,.pgrid,.contact-grid{grid-template-columns:1fr}.bc.wide{grid-column:span 1}.route-intro{padding:36px 16px}.route-intro-box,.route-body{grid-template-columns:1fr;padding:24px}.route-intro-art{max-height:180px}.route-dialog{padding:22px 16px}.route-body{padding:0;gap:12px}.route-guide{max-height:190px}.route-options{grid-template-columns:1fr}.why-imdac{padding:52px 20px}.why-layout{grid-template-columns:1fr}.why-photo{min-height:310px}.why-benefits{grid-template-rows:auto;gap:9px}.why-benefit{min-height:92px}.sedes-grid{grid-template-columns:repeat(2,1fr)}.ccard{width:260px}.acard{width:200px}.acard.wide{width:300px}.footer-grid{grid-template-columns:1fr;gap:28px}.fbot{flex-direction:column;gap:6px;text-align:center}.cursos-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.nav{height:60px}.nav-i{padding:0 20px}.hero{min-height:680px;padding:72px 26px 40px;align-items:flex-start}.hero-bg::before{background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(255,255,255,.73) 62%,rgba(255,255,255,.9))}.hero-bg::after{left:16px;top:30px;bottom:25px}.hero-c{margin:32px 0 0 15px}.hero h1{font-size:clamp(42px,12vw,58px)}.hero-btns{flex-direction:column;align-items:flex-start}.stats{gap:17px}.stat-n{font-size:28px}.vip-card{padding:13px;gap:11px}.vip-copy b{font-size:14px}.bento,.mv-grid,.pgrid,.contact-grid{grid-template-columns:1fr}.bc.wide{grid-column:span 1}#cursosTrack .ccard{width:calc((100vw - 64px)/2);max-width:none}.course-detail{grid-template-columns:1fr}.course-dialog{padding:22px}.course-dialog img{max-height:360px}.route-intro{padding:36px 16px}.route-intro-box,.route-body{grid-template-columns:1fr;padding:24px}.route-intro-art{max-height:180px}.route-dialog{padding:22px 16px}.route-body{padding:0;gap:12px}.route-guide{max-height:190px}.route-options{grid-template-columns:1fr}.why-imdac{padding:52px 20px}.why-layout{grid-template-columns:1fr}.why-photo{min-height:310px}.why-benefits{grid-template-rows:auto;gap:9px}.why-benefit{min-height:92px}.sedes-grid{grid-template-columns:repeat(2,1fr)}.ccard{width:260px}.acard{width:200px}.acard.wide{width:300px}.footer-grid{grid-template-columns:1fr;gap:28px}.fbot{flex-direction:column;gap:6px;text-align:center}.cursos-grid{grid-template-columns:1fr}}
 
 @media(max-width:900px){.nav{height:78px;padding:10px 14px}.nav-i{padding:0 18px}.navlinks,.nav-actions{display:none}.brand{min-width:0}.brand img{height:46px}.hbg{display:flex}.hero{min-height:680px;padding:72px 26px 40px;align-items:flex-start}.hero-bg::before{background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(255,255,255,.73) 62%,rgba(255,255,255,.9))}.hero-bg::after{left:16px;top:30px;bottom:25px}.hero-c{margin:32px 0 0 15px}}
 @media(max-width:430px){.brand-name{font-size:10px}.brand-name small{font-size:5.8px}.brand img{height:40px}.nav-i{gap:8px;padding:0 14px}}
@@ -199,8 +200,8 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 </div></section>
 <section class="sec"><div class="sec-c">
   <span class="sec-tag">Oferta academica</span>
-  <h2 class="sec-tit">11 cursos con<br><em>temario incluido.</em></h2>
-  <p class="sec-desc">Desliza para explorar cada programa. Todos incluyen certificacion oficial.</p>
+  <h2 class="sec-tit">Especialízate en lo que<br><em>construyes.</em></h2>
+  <p class="sec-desc">Explora programas de arquitectura, ingeniería y construcción. Conoce cada propuesta antes de elegir tu próxima capacitación.</p>
   <div class="wrap"><div class="outer" id="cursosOuter"><div class="track" id="cursosTrack"></div></div></div>
   <div class="cnav">
     <button class="cbtn" id="cursosPrev">&#8592;</button>
@@ -220,6 +221,7 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
     <button class="cbtn" id="alumnosNext">&#8594;</button>
   </div>
 </div></section>
+<div class="course-modal" id="courseModal" role="dialog" aria-modal="true" aria-label="Detalle del programa" aria-hidden="true"><div class="course-dialog"><button class="course-close" id="courseClose" aria-label="Cerrar">×</button><div id="courseDetail"></div></div></div>
 
 <section class="sec" style="overflow:hidden"><div class="sec-c">
   <span class="sec-tag">Testimonios</span>
@@ -323,8 +325,8 @@ function Carousel(oID,tID,dID,pID,nID,pv){
   bd();go(0);
 }
 function cursoCard(c){
-  var tem=c.tem.map(function(t){return '<li>'+t+'</li>';}).join('');
-  return '<div class="ccard" data-c><div class="ccard-img"><img src="'+c.img+'" alt="'+c.t+'" loading="lazy"><span class="ccard-num">'+c.n+'</span></div><div class="ccard-body"><h3>'+c.t+'</h3><p class="ccard-pon">'+c.p+'</p><div class="ccard-tem"><div class="ccard-tem-title">Temario</div><ul>'+tem+'</ul></div><div class="ccard-cert"><strong>Certificado con valor curricular</strong>Folio unico y QR verificable</div><a href="'+waLink('Hola, me interesa el curso: '+c.t)+'" target="_blank" class="ccard-btn">'+WSVG+' Inscribirse</a></div></div>';
+  var id=CURSOS.indexOf(c);
+  return '<div class="ccard" data-c><div class="ccard-img"><img src="'+c.img+'" alt="Flyer completo de '+c.t+'" loading="lazy"><span class="ccard-num">'+c.n+'</span></div><div class="ccard-body"><h3>'+c.t+'</h3><p class="ccard-pon">'+c.p+'</p><div class="ccard-cert"><strong>Certificación IMDAC</strong>Información y temario disponibles</div><button type="button" class="ccard-btn" data-program-id="'+id+'">Ver programa&nbsp; →</button></div></div>';
 }
 function initPage(){
   var hbg=document.getElementById('hbg'),mob=document.getElementById('mobnav');
@@ -361,6 +363,15 @@ function initPage(){
   document.getElementById('startRoute').onclick=open;document.getElementById('closeRoute').onclick=close;document.getElementById('skipRoute').onclick=function(){document.getElementById('tu-ruta').style.display='none';};modal.addEventListener('click',function(e){if(e.target===modal)close();});
 })();
 document.addEventListener('DOMContentLoaded',initPage);
+
+// ---- DETALLE DE PROGRAMAS ----
+(function(){
+  var modal=document.getElementById('courseModal'),detail=document.getElementById('courseDetail'),close=document.getElementById('courseClose');
+  if(!modal||!detail)return;
+  function show(i){var c=CURSOS[i];if(!c)return;detail.className='course-detail';detail.innerHTML='<img src="'+c.img+'" alt="Flyer completo de '+c.t+'"><div><div class="course-area">Programa '+c.n+' · IMDAC</div><h2>'+c.t+'</h2><p>'+c.p+'</p><div class="course-topics"><strong>Temario del programa</strong><ul>'+c.tem.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul></div><p><strong>Certificación IMDAC:</strong> al finalizar el programa recibirás folio único y QR verificable.</p><a target="_blank" class="btn-r" href="'+waLink('Hola, me interesa el programa: '+c.t)+'">'+WSVG+' Solicitar inscripción</a></div>';modal.classList.add('open');modal.setAttribute('aria-hidden','false');}
+  function hide(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');}
+  document.addEventListener('click',function(e){var b=e.target.closest('[data-program-id]');if(b)show(Number(b.dataset.programId));});close.onclick=hide;modal.addEventListener('click',function(e){if(e.target===modal)hide();});
+})();
 
 // ---- COUNTER ANIMATION ----
 (function(){
