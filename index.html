@@ -10,16 +10,16 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',sans-serif;background:#fff;color:#1d1d1f;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-style:none}
-.nav{position:sticky;top:0;z-index:999;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid #eee;height:70px}
-.nav-i{max-width:1440px;margin:0 auto;padding:0 38px;height:100%;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:10px}.brand img{height:36px}.brand b{font-size:14px;font-weight:700}
-.navlinks{display:flex;gap:2px}.navlinks a{font-size:12px;color:#555;padding:7px 12px;border-radius:8px;font-weight:500;transition:all .2s}.navlinks a:hover,.navlinks a.on{background:#f5f5f7;color:#1d1d1f}
-.nwa{background:#E31E24;color:#fff;font-size:12px;font-weight:600;padding:8px 18px;border-radius:50px;display:flex;align-items:center;gap:6px}.nwa:hover{background:#c41a1f}
+.nav{position:sticky;top:0;z-index:999;height:124px;padding:18px 22px 16px;background:#f7f0ef;border-top:3px solid #321b1d}
+.nav-i{max-width:1200px;margin:0 auto;padding:0 29px;height:100%;display:flex;align-items:center;gap:24px;background:rgba(255,255,255,.92);border:1px solid rgba(60,36,38,.12);border-radius:999px;box-shadow:0 14px 25px rgba(47,29,31,.14)}
+.brand{display:flex;align-items:center;gap:11px;min-width:255px}.brand img{height:52px;width:auto}.brand-name{font-size:13px;line-height:1.05;font-weight:900;letter-spacing:-.025em;color:#292729}.brand-name small{font-size:7.3px;letter-spacing:.025em;font-weight:700}
+.navlinks{display:flex;gap:5px;margin-left:auto}.navlinks a{position:relative;font-size:13px;color:#69595b;padding:11px 10px;border-radius:0;font-weight:500;transition:all .2s;white-space:nowrap}.navlinks a:hover,.navlinks a.on{background:transparent;color:#241719}.navlinks a.on::after{content:'';position:absolute;left:10px;right:10px;bottom:4px;height:2px;background:#73142b}
+.nav-actions{display:flex;align-items:center;gap:10px}.vip-nav,.nwa{font-size:12px;font-weight:700;padding:11px 17px;border-radius:50px;display:inline-flex;align-items:center;justify-content:center;gap:7px;white-space:nowrap;transition:transform .2s,filter .2s}.vip-nav{background:#c38d27;color:#251711}.nwa{background:#74132c;color:#fff}.vip-nav:hover,.nwa:hover{transform:translateY(-1px);filter:brightness(.95)}
 .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px}.hbg span{display:block;width:24px;height:2px;background:#1d1d1f;border-radius:2px}
 .mobnav{display:none;background:#fff;border-bottom:1px solid #eee;padding:12px 20px}
 .mobnav a{display:block;padding:11px 0;font-size:15px;font-weight:500;color:#1d1d1f;border-bottom:1px solid #f5f5f5}
 .mobnav a:last-child{border:none;color:#E31E24;padding-top:14px}.mobnav.open{display:block}
-.hero{position:relative;min-height:calc(100vh - 70px);display:flex;align-items:center;justify-content:flex-start;text-align:left;padding:100px max(7vw,34px) 62px;overflow:hidden}
+.hero{position:relative;min-height:calc(100vh - 124px);display:flex;align-items:center;justify-content:flex-start;text-align:left;padding:100px max(7vw,34px) 62px;overflow:hidden}
 .hero-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.91) 34%,rgba(255,255,255,.58) 57%,rgba(255,255,255,.08) 78%)}
 .hero-bg::after{content:'';position:absolute;z-index:1;left:max(5vw,24px);top:54px;bottom:44px;width:2px;background:#e31e24}
 .hero-dark{background:#1d1d1f;min-height:260px;padding:80px 20px 60px}.hero-dark::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:#E31E24}
@@ -110,6 +110,8 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 @media(max-width:1024px){.bento,.mv-grid,.pgrid{grid-template-columns:repeat(2,1fr)}.bc.wide{grid-column:span 2}.sedes-grid{grid-template-columns:repeat(3,1fr)}.cursos-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:768px){.nav{height:60px}.nav-i{padding:0 20px}.hero{min-height:680px;padding:72px 26px 40px;align-items:flex-start}.hero-bg::before{background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(255,255,255,.73) 62%,rgba(255,255,255,.9))}.hero-bg::after{left:16px;top:30px;bottom:25px}.hero-c{margin:32px 0 0 15px}.hero h1{font-size:clamp(42px,12vw,58px)}.hero-btns{flex-direction:column;align-items:flex-start}.stats{gap:17px}.stat-n{font-size:28px}.vip-card{padding:13px;gap:11px}.vip-copy b{font-size:14px}.bento,.mv-grid,.pgrid,.contact-grid{grid-template-columns:1fr}.bc.wide{grid-column:span 1}.sedes-grid{grid-template-columns:repeat(2,1fr)}.ccard{width:260px}.acard{width:200px}.acard.wide{width:300px}.footer-grid{grid-template-columns:1fr;gap:28px}.fbot{flex-direction:column;gap:6px;text-align:center}.cursos-grid{grid-template-columns:1fr}}
 
+@media(max-width:900px){.nav{height:78px;padding:10px 14px}.nav-i{padding:0 18px}.navlinks,.nav-actions{display:none}.brand{min-width:0}.brand img{height:46px}.hbg{display:flex}.hero{min-height:680px;padding:72px 26px 40px;align-items:flex-start}.hero-bg::before{background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(255,255,255,.73) 62%,rgba(255,255,255,.9))}.hero-bg::after{left:16px;top:30px;bottom:25px}.hero-c{margin:32px 0 0 15px}}
+@media(max-width:430px){.brand-name{font-size:10px}.brand-name small{font-size:5.8px}.brand img{height:40px}.nav-i{gap:8px;padding:0 14px}}
 @keyframes slideLeft{from{opacity:0;transform:translateX(-50px)}to{opacity:1;transform:translateX(0)}}
 .ha{opacity:0;animation:slideLeft .8s cubic-bezier(.22,1,.36,1) forwards}
 .ha1{animation-delay:.05s}.ha2{animation-delay:.2s}.ha3{animation-delay:.4s}.ha4{animation-delay:.6s}.ha5{animation-delay:.8s}
@@ -144,12 +146,12 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 <body>
 <nav class="nav">
   <div class="nav-i">
-    <a href="index.html" class="brand"><img src="assets/logo/imdac-logo-new.png" alt="IMDAC" style="height:44px"></a>
+    <a href="index.html" class="brand" aria-label="Instituto Mexicano de Arquitectura y Construcción"><img src="assets/logo/imdac-logo-new.png" alt="IMDAC"><span class="brand-name">INSTITUTO MEXICANO<br><small>DE ARQUITECTURA Y CONSTRUCCIÓN</small></span></a>
     <ul class="navlinks"><li><a href="index.html" class="on">Inicio</a></li><li><a href="pages/cursos-online.html">Cursos Online</a></li><li><a href="pages/cursos-presenciales.html">Presenciales</a></li><li><a href="pages/nosotros.html">Nosotros</a></li><li><a href="pages/contacto.html">Contacto</a></li></ul>
-    <a href="https://teccapitalweb.github.io/IMDAC-CLUB/" class="nwa">Club VIP&nbsp; →</a>
+    <div class="nav-actions"><a href="https://teccapitalweb.github.io/IMDAC-CLUB/" class="vip-nav">♛&nbsp; Club VIP</a><a href="#" class="nwa wa-auto" data-msg="Hola, informes IMDAC">◔&nbsp; WhatsApp</a></div>
     <div class="hbg" id="hbg"><span></span><span></span><span></span></div>
   </div>
-  <div class="mobnav" id="mobnav"><a href="index.html">Inicio</a><a href="pages/cursos-online.html">Cursos Online</a><a href="pages/cursos-presenciales.html">Presenciales</a><a href="pages/nosotros.html">Nosotros</a><a href="pages/contacto.html">Contacto</a><a href="https://teccapitalweb.github.io/IMDAC-CLUB/">Club VIP</a></div>
+  <div class="mobnav" id="mobnav"><a href="index.html">Inicio</a><a href="pages/cursos-online.html">Cursos Online</a><a href="pages/cursos-presenciales.html">Presenciales</a><a href="pages/nosotros.html">Nosotros</a><a href="pages/contacto.html">Contacto</a><a href="https://teccapitalweb.github.io/IMDAC-CLUB/">Club VIP</a><a href="#" class="wa-auto" data-msg="Hola, informes IMDAC">WhatsApp</a></div>
 </nav>
 <section class="hero hero-bg" style="background:url('assets/img/hero/landing-imdac-vip.png') center/cover no-repeat;position:relative">
   <div class="hero-c">
