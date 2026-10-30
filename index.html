@@ -88,6 +88,7 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 .about-imdac{position:relative;isolation:isolate;padding:78px 20px 70px;background:#fff center/cover no-repeat;background-image:url('assets/img/about-imdac-bg.png')}.about-imdac::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.72))}.about-imdac-head{text-align:center;max-width:630px;margin:0 auto 28px}.about-imdac-head .sec-desc{margin:14px auto 0}.about-imdac .mv-grid{max-width:1120px;margin:0 auto;gap:18px;align-items:stretch}.about-imdac .mvc{min-height:455px;padding:32px 34px;position:relative;overflow:hidden;border-radius:20px;background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:flex-start}.about-imdac .mvc::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,19,21,.92) 0%,rgba(21,21,23,.78) 54%,rgba(20,20,22,.76) 100%)}.about-imdac .mvc.c1{background-image:url('assets/img/about-imdac-mision.png')}.about-imdac .mvc.c2{background-image:url('assets/img/about-imdac-vision.png')}.about-imdac .mvc.c2::before{background:linear-gradient(180deg,rgba(185,12,21,.9),rgba(232,30,36,.78))}.about-imdac .mvc>*{position:relative;z-index:1}.about-imdac .mv-lbl{color:#fff;display:flex;align-items:center;gap:10px;margin-bottom:24px}.about-imdac .mv-lbl::before{content:'';width:42px;height:42px;border-radius:50%;background:#e31e24 url('assets/logo/imdac-logo-new.png') center/25px auto no-repeat;box-shadow:0 5px 15px rgba(0,0,0,.15)}.about-imdac .c2 .mv-lbl::before{background-color:#fff}.about-imdac .mvc h3{font-size:24px;max-width:290px;margin-top:auto;margin-bottom:14px}.about-imdac .mvc p{font-size:15px;line-height:1.65;color:rgba(255,255,255,.9);max-width:300px}.about-imdac .mvc.c3{min-height:455px;background:#fff;border:1px solid #e7e0df;box-shadow:0 14px 28px rgba(44,25,27,.12)}.about-imdac .mvc.c3::before{display:none}.about-imdac .mvc.c3 .mv-lbl{color:#777;margin-bottom:20px}.about-imdac .mvc.c3 .mv-lbl::before{background-color:#e31e24}.about-imdac .mvc.c3 h3{color:#1d1d1f;font-size:25px;margin:0 0 20px}.about-imdac .mv-vals{gap:0}.about-imdac .mv-vals li{padding:11px 0;border-top:1px solid #ece7e6;font-size:14px;color:#303033}.about-imdac .mv-vals li::before{width:20px;height:20px;background:transparent;border:2px solid #e31e24;border-radius:50%}
 .sedes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .scard{background:#fff;border-radius:12px;padding:18px 16px;border:1px solid #ebebeb;transition:all .2s}.scard:hover{border-color:#E31E24;transform:translateY(-2px)}
+.sedes-carousel{overflow:hidden;padding:8px 2px 14px;cursor:grab}.sedes-carousel:active{cursor:grabbing}.sedes-track{display:flex;gap:14px;width:max-content;transition:transform .35s ease}.sedes-track .scard{width:250px;flex-shrink:0}.sedes-nav{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px}
 .scard-fecha{font-size:10px;font-weight:700;color:#E31E24;letter-spacing:.06em;margin-bottom:6px;display:block}
 .scard-ciudad{font-size:14px;font-weight:700;color:#1d1d1f}.scard-estado{font-size:11px;color:#888;margin-top:2px}
 .scard-wa{display:inline-block;font-size:11px;color:#E31E24;font-weight:600;margin-top:12px}
@@ -238,7 +239,8 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
   <h2 class="sec-tit">12 ciudades.<br><em>Tu sede mas cercana.</em></h2>
   <p class="sec-desc">Cursos presenciales con instructores certificados en toda la Republica.</p>
   <div class="sedes-filters" id="sedesFilters"></div>
-  <div class="sedes-grid" id="sedesGrid"></div>
+  <div class="sedes-carousel" id="sedesOuter"><div class="sedes-track" id="sedesTrack"></div></div>
+  <div class="sedes-nav"><button class="cbtn" id="sedesPrev" aria-label="Sede anterior">&#8592;</button><div class="cdots" id="sedesDots"></div><button class="cbtn" id="sedesNext" aria-label="Siguiente sede">&#8594;</button></div>
 </div></section>
 <section class="sec"><div class="sec-c">
   <span class="sec-tag">Proceso</span>
@@ -438,19 +440,23 @@ document.addEventListener('DOMContentLoaded',initPage);
   var ff=document.getElementById('sedesFilters');
   if(!ff)return;
   var estados=['Todos'].concat([...new Set(SEDES.map(function(s){return s.e;}))]);
-  var current='Todos';
+  var current='Todos',pos=0,shown=[];
+  var track=document.getElementById('sedesTrack'),dots=document.getElementById('sedesDots');
+  function visible(){return window.innerWidth<650?1:window.innerWidth<1000?2:4;}
+  function max(){return Math.max(0,shown.length-visible());}
+  function move(next){pos=Math.max(0,Math.min(next,max()));var card=track&&track.querySelector('.scard'),w=card?card.offsetWidth+14:264;if(track)track.style.transform='translateX(-'+(pos*w)+'px)';if(dots)dots.querySelectorAll('.cdot').forEach(function(dot,i){dot.classList.toggle('on',i===pos);});}
+  function buildDots(){if(!dots)return;dots.innerHTML='';for(var i=0;i<=max();i++){var dot=document.createElement('div');dot.className='cdot'+(i===pos?' on':'');(function(n){dot.onclick=function(){move(n);};})(i);dots.appendChild(dot);}}
   function render(){
-    var sg=document.getElementById('sedesGrid');
-    if(!sg)return;
-    var filtered=current==='Todos'?SEDES:SEDES.filter(function(s){return s.e===current;});
-    sg.innerHTML=filtered.map(function(s){return '<div class="scard">'+(s.img?'<div class="scard-img"><img src="'+s.img+'" alt="'+s.c+'" loading="lazy"></div>':'')+'<span class="scard-fecha">'+s.f+'</span><div class="scard-ciudad">'+s.c+'</div><div class="scard-estado">'+s.e+'</div><a href="'+waLink('Hola, informes sede '+s.c)+'" target="_blank" class="scard-wa">Informes</a></div>';}).join('');
+    if(!track)return;
+    shown=current==='Todos'?SEDES:SEDES.filter(function(s){return s.e===current;});pos=0;
+    track.innerHTML=shown.map(function(s){return '<div class="scard">'+(s.img?'<div class="scard-img"><img src="'+s.img+'" alt="'+s.c+'" loading="lazy"></div>':'')+'<span class="scard-fecha">'+s.f+'</span><div class="scard-ciudad">'+s.c+'</div><div class="scard-estado">'+s.e+'</div><a href="'+waLink('Hola, informes sede '+s.c)+'" target="_blank" class="scard-wa">Informes</a></div>';}).join('');buildDots();move(0);
   }
   ff.innerHTML=estados.map(function(e){return '<button class="sf-btn'+(e==='Todos'?' on':'')+'" data-e="'+e+'">'+e+'</button>';}).join('');
   ff.querySelectorAll('.sf-btn').forEach(function(b){
     b.onclick=function(){current=this.getAttribute('data-e');ff.querySelectorAll('.sf-btn').forEach(function(x){x.classList.remove('on');});this.classList.add('on');render();};
   });
-  render();
-  var sg=document.getElementById('sedesGrid');if(sg)sg.innerHTML='';
+  document.getElementById('sedesPrev').onclick=function(){move(pos-1);};document.getElementById('sedesNext').onclick=function(){move(pos+1);};
+  window.addEventListener('resize',function(){buildDots();move(0);});render();
 })();
 // ---- ALUMNOS AUTO-SCROLL ----
 (function(){
