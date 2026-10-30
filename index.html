@@ -10,8 +10,8 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',sans-serif;background:#fff;color:#1d1d1f;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-style:none}
-.nav{position:sticky;top:0;z-index:999;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid #eee;height:56px}
-.nav-i{max-width:1100px;margin:0 auto;padding:0 20px;height:100%;display:flex;align-items:center;justify-content:space-between}
+.nav{position:sticky;top:0;z-index:999;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid #eee;height:70px}
+.nav-i{max-width:1440px;margin:0 auto;padding:0 38px;height:100%;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:10px}.brand img{height:36px}.brand b{font-size:14px;font-weight:700}
 .navlinks{display:flex;gap:2px}.navlinks a{font-size:12px;color:#555;padding:7px 12px;border-radius:8px;font-weight:500;transition:all .2s}.navlinks a:hover,.navlinks a.on{background:#f5f5f7;color:#1d1d1f}
 .nwa{background:#E31E24;color:#fff;font-size:12px;font-weight:600;padding:8px 18px;border-radius:50px;display:flex;align-items:center;gap:6px}.nwa:hover{background:#c41a1f}
@@ -19,18 +19,22 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 .mobnav{display:none;background:#fff;border-bottom:1px solid #eee;padding:12px 20px}
 .mobnav a{display:block;padding:11px 0;font-size:15px;font-weight:500;color:#1d1d1f;border-bottom:1px solid #f5f5f5}
 .mobnav a:last-child{border:none;color:#E31E24;padding-top:14px}.mobnav.open{display:block}
-.hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 20px 80px}
-.hero-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0.88) 0%,rgba(255,255,255,0.75) 50%,rgba(255,255,255,0.93) 100%)}
+.hero{position:relative;min-height:calc(100vh - 70px);display:flex;align-items:center;justify-content:flex-start;text-align:left;padding:100px max(7vw,34px) 62px;overflow:hidden}
+.hero-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.91) 34%,rgba(255,255,255,.58) 57%,rgba(255,255,255,.08) 78%)}
+.hero-bg::after{content:'';position:absolute;z-index:1;left:max(5vw,24px);top:54px;bottom:44px;width:2px;background:#e31e24}
 .hero-dark{background:#1d1d1f;min-height:260px;padding:80px 20px 60px}.hero-dark::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:#E31E24}
-.hero-c{position:relative;z-index:1;max-width:720px;margin:0 auto}
-.hero-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#E31E24;display:block;margin-bottom:18px}
+.hero-c{position:relative;z-index:2;max-width:710px;margin:0 0 0 max(4vw,22px)}
+.hero-label{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#444;display:block;margin-bottom:22px}
 .hero-dark .hero-label{color:rgba(255,255,255,0.6)}
-.hero h1{font-size:clamp(32px,6vw,68px);font-weight:900;letter-spacing:-.03em;line-height:1;color:#1d1d1f;margin-bottom:18px}
+.hero h1{font-size:clamp(42px,5.4vw,84px);font-weight:900;letter-spacing:-.055em;line-height:.95;color:#161618;margin-bottom:24px}
 .hero-dark h1{color:#fff}.hero h1 em{color:#E31E24;font-style:normal}
-.hero-sub{font-size:clamp(14px,2vw,18px);color:#555;line-height:1.7;max-width:500px;margin:0 auto 36px}
+.hero-sub{font-size:clamp(15px,1.6vw,21px);color:#555;line-height:1.45;max-width:570px;margin:0 0 28px}
 .hero-dark .hero-sub{color:rgba(255,255,255,0.6)}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:52px}
-.stats{display:flex;gap:40px;justify-content:center;border-top:1px solid rgba(0,0,0,0.1);padding-top:36px}
+.hero-btns{display:flex;gap:12px;justify-content:flex-start;flex-wrap:wrap;margin-bottom:42px}
+.stats{display:flex;gap:40px;justify-content:flex-start;border-top:1px solid rgba(0,0,0,0.14);padding-top:30px}
+.vip-card{display:flex;align-items:center;gap:16px;max-width:515px;padding:15px 17px;margin:0 0 20px;border:1px solid rgba(227,30,36,.25);background:rgba(255,255,255,.8);box-shadow:0 14px 35px rgba(20,20,20,.09);border-radius:14px;transition:transform .2s,box-shadow .2s}
+.vip-card:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(20,20,20,.14)}
+.vip-badge{width:50px;height:50px;flex:0 0 50px;border-radius:12px;display:grid;place-items:center;background:#1d1d1f;color:#fff;font-size:21px}.vip-copy{flex:1}.vip-copy b{display:block;font-size:15px;letter-spacing:.02em}.vip-copy span{display:block;font-size:12px;line-height:1.35;color:#666;margin-top:3px}.vip-arrow{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#e31e24;color:#fff;font-size:18px}
 .stat-n{font-size:36px;font-weight:900;letter-spacing:-.03em;color:#1d1d1f;line-height:1}.stat-n em{color:#E31E24;font-style:normal}
 .stat-l{font-size:11px;color:#888;letter-spacing:.04em;text-transform:uppercase;margin-top:4px}
 .btn-r{background:#E31E24;color:#fff;padding:13px 26px;border-radius:50px;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:7px;transition:all .2s}.btn-r:hover{background:#c41a1f;transform:translateY(-1px)}
@@ -104,7 +108,7 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 .footer ul{display:flex;flex-direction:column;gap:10px}.footer ul a{font-size:13px;color:#333;transition:color .2s}.footer ul a:hover{color:#E31E24}
 .fbot{border-top:1px solid #e5e5e5;padding-top:18px;display:flex;justify-content:space-between;font-size:12px;color:#999}
 @media(max-width:1024px){.bento,.mv-grid,.pgrid{grid-template-columns:repeat(2,1fr)}.bc.wide{grid-column:span 2}.sedes-grid{grid-template-columns:repeat(3,1fr)}.cursos-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:768px){.navlinks,.nwa{display:none}.hbg{display:flex}.stats{gap:20px}.stat-n{font-size:28px}.hero-btns{flex-direction:column;align-items:center}.bento,.mv-grid,.pgrid,.contact-grid{grid-template-columns:1fr}.bc.wide{grid-column:span 1}.sedes-grid{grid-template-columns:repeat(2,1fr)}.ccard{width:260px}.acard{width:200px}.acard.wide{width:300px}.footer-grid{grid-template-columns:1fr;gap:28px}.fbot{flex-direction:column;gap:6px;text-align:center}.cursos-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.nav{height:60px}.nav-i{padding:0 20px}.hero{min-height:680px;padding:72px 26px 40px;align-items:flex-start}.hero-bg::before{background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(255,255,255,.73) 62%,rgba(255,255,255,.9))}.hero-bg::after{left:16px;top:30px;bottom:25px}.hero-c{margin:32px 0 0 15px}.hero h1{font-size:clamp(42px,12vw,58px)}.hero-btns{flex-direction:column;align-items:flex-start}.stats{gap:17px}.stat-n{font-size:28px}.vip-card{padding:13px;gap:11px}.vip-copy b{font-size:14px}.bento,.mv-grid,.pgrid,.contact-grid{grid-template-columns:1fr}.bc.wide{grid-column:span 1}.sedes-grid{grid-template-columns:repeat(2,1fr)}.ccard{width:260px}.acard{width:200px}.acard.wide{width:300px}.footer-grid{grid-template-columns:1fr;gap:28px}.fbot{flex-direction:column;gap:6px;text-align:center}.cursos-grid{grid-template-columns:1fr}}
 
 @keyframes slideLeft{from{opacity:0;transform:translateX(-50px)}to{opacity:1;transform:translateX(0)}}
 .ha{opacity:0;animation:slideLeft .8s cubic-bezier(.22,1,.36,1) forwards}
@@ -141,19 +145,22 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 <nav class="nav">
   <div class="nav-i">
     <a href="index.html" class="brand"><img src="assets/logo/imdac-logo-new.png" alt="IMDAC" style="height:44px"></a>
-    <ul class="navlinks"><li><a href="index.html">Inicio</a></li><li><a href="pages/cursos-online.html">Cursos Online</a></li><li><a href="pages/cursos-presenciales.html">Presenciales</a></li><li><a href="pages/nosotros.html">Nosotros</a></li><li><a href="pages/contacto.html">Contacto</a></li></ul>
-    <a href="#" class="nwa wa-auto" data-msg="Hola, informes IMDAC"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+    <ul class="navlinks"><li><a href="index.html" class="on">Inicio</a></li><li><a href="pages/cursos-online.html">Cursos Online</a></li><li><a href="pages/cursos-presenciales.html">Presenciales</a></li><li><a href="pages/nosotros.html">Nosotros</a></li><li><a href="pages/contacto.html">Contacto</a></li></ul>
+    <a href="https://teccapitalweb.github.io/IMDAC-CLUB/" class="nwa">Club VIP&nbsp; →</a>
     <div class="hbg" id="hbg"><span></span><span></span><span></span></div>
   </div>
-  <div class="mobnav" id="mobnav"><a href="index.html">Inicio</a><a href="pages/cursos-online.html">Cursos Online</a><a href="pages/cursos-presenciales.html">Presenciales</a><a href="pages/nosotros.html">Nosotros</a><a href="pages/contacto.html">Contacto</a><a href="#" class="wa-auto" data-msg="Hola, informes IMDAC">WhatsApp</a></div>
+  <div class="mobnav" id="mobnav"><a href="index.html">Inicio</a><a href="pages/cursos-online.html">Cursos Online</a><a href="pages/cursos-presenciales.html">Presenciales</a><a href="pages/nosotros.html">Nosotros</a><a href="pages/contacto.html">Contacto</a><a href="https://teccapitalweb.github.io/IMDAC-CLUB/">Club VIP</a></div>
 </nav>
-<section class="hero hero-bg" style="background:url('assets/img/hero/hero-banner.jpg') center/cover no-repeat;position:relative">
+<section class="hero hero-bg" style="background:url('assets/img/hero/landing-imdac-vip.png') center/cover no-repeat;position:relative">
   <div class="hero-c">
-    <span class="hero-label ha ha1">Instituto Mexicano de Arquitectura y Construccion</span>
+    <span class="hero-label ha ha1">Formación profesional &nbsp;•&nbsp; México</span>
     <h1 class="ha ha2">Forma el futuro.<br><em>Construye</em> hoy.</h1>
-    <p class="hero-sub ha ha3">Capacitacion especializada para profesionales de la arquitectura y construccion. Certificacion oficial en toda la Republica Mexicana.</p>
+    <p class="hero-sub ha ha3">Capacitación especializada para arquitectos, ingenieros y profesionales de la construcción. Certificación oficial en toda la República Mexicana.</p>
+    <a class="vip-card ha ha3" href="https://teccapitalweb.github.io/IMDAC-CLUB/" aria-label="Entrar al Club VIP IMDAC">
+      <span class="vip-badge">✦</span><span class="vip-copy"><b>CLUB VIP IMDAC</b><span>Regístrate, conoce tu prueba gratuita y activa tu membresía.</span></span><span class="vip-arrow">→</span>
+    </a>
     <div class="hero-btns ha ha4">
-      <a href="pages/cursos-online.html" class="btn-r">Ver cursos online</a>
+      <a href="https://teccapitalweb.github.io/IMDAC-CLUB/" class="btn-r">Entrar al Club VIP&nbsp; →</a>
       <a href="pages/cursos-presenciales.html" class="btn-g">Sedes presenciales</a>
     </div>
     <div class="stats ha ha5">
