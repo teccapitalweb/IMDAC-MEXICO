@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://imdacmx.com/sitemap.xml
