@@ -1,0 +1,75 @@
+name: Publicar IMDAC
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '23 * * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      club_revision: ${{ steps.club.outputs.revision }}
+    steps:
+      - name: Obtener la versión del Club
+        id: club
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          revision=$(gh api repos/teccapitalweb/IMDAC-CLUB/commits/main --jq '.sha')
+          [[ "$revision" =~ ^[a-f0-9]{40}$ ]]
+          if [[ "$GITHUB_EVENT_NAME" == schedule ]] &&
+            [[ "$(curl --max-time 10 -fsS https://imdacmx.com/membresia/version-club.txt || true)" == "$revision" ]]; then
+            exit 0
+          fi
+          echo "revision=$revision" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v6
+        if: steps.club.outputs.revision != ''
+        with:
+          persist-credentials: false
+
+      - uses: actions/checkout@v6
+        if: steps.club.outputs.revision != ''
+        with:
+          repository: teccapitalweb/IMDAC-CLUB
+          ref: ${{ steps.club.outputs.revision }}
+          path: club-source
+          persist-credentials: false
+
+      - name: Preparar la página y el formulario de membresía
+        if: steps.club.outputs.revision != ''
+        run: |
+          set -o pipefail
+          mkdir -p _site
+          git archive HEAD | tar -x -C _site
+          mkdir -p _site/membresia
+          git -C club-source archive HEAD | tar -x -C _site/membresia
+          git -C club-source rev-parse HEAD > _site/membresia/version-club.txt
+
+      - uses: actions/upload-pages-artifact@v4
+        if: steps.club.outputs.revision != ''
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.club_revision != ''
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
